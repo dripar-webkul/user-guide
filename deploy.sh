@@ -7,10 +7,12 @@ set -e
 npm run docs:build
 
 # navigate into the build output directory
-cd docs/.vuepress/dist
+cd .vitepress/dist
 
+# set custom domain
 echo 'docs.unopim.com' > CNAME
 
+# push to GitHub Pages
 git init
 git add -A
 git commit -m 'chore: deploy docs to GitHub'
