@@ -4,7 +4,7 @@ Magic AI is an intelligent feature in **UnoPim** that helps you create content f
 
 It is built for teams who want quick, high-quality results without technical complexity.
 
----
+
 
 ## General Settings
 
@@ -20,7 +20,6 @@ Use General Settings to connect Magic AI with your preferred AI provider.
 
 After setup, Magic AI is available across supported features in UnoPim.
 
----
 
 ## Content Generation
 
@@ -29,9 +28,9 @@ Magic AI generates high-quality **Product** and **Category** content using Large
 ### Supported AI Providers
 
 **OpenAI**
- * gpt-5, gpt-5.1, gpt-5-mini, gpt-5-nano
- * gpt-4o, gpt-4o-mini, gpt-3.5-turbo, dall-e-2, and dall-e-3.
 
+* Text & Multimodal: gpt-5.2, gpt-5, gpt-5.1, gpt-5-mini, gpt-5-nano, gpt-4o, gpt-4o-mini, gpt-3.5-turbo
+* Image Generation: gpt-image-1.5, gpt-image-1, gpt-image-1-mini, dall-e-2, dall-e-3
 
 **Ollama**
 
@@ -40,8 +39,8 @@ Magic AI generates high-quality **Product** and **Category** content using Large
 
 **Gemini**
 
-* gemini-2.5-pro, gemini-2.5-flash
-* gemini-2.0-flash, gemini-1.5-flash-latest, gemini-1.5-pro
+* Text & Multimodal: gemini-2.5-pro, gemini-2.5-flash, gemini-2.0-flash, gemini-1.5-flash-latest, gemini-1.5-pro
+* Image Generation: gemini-2.5-flash-image, gemini-3-pro-image-preview
 
 **Groq (xAI)**
 
@@ -50,18 +49,17 @@ Magic AI generates high-quality **Product** and **Category** content using Large
 * openai/gpt-oss-120b, openai/gpt-oss-20b
 * groq/compound, qwen/qwen3-32b, moonshotai/kimi-k2-instruct-0905
 
-Magic AI saves time by creating consistent, SEO-friendly content automatically.
+**Magic AI** helps create consistent, SEO-friendly content faster and more efficiently.
 
----
 
 ## Image Generation
 
-Enable Image Generation to create images during upload using AI models like DALL·E.
+ Enable Image Generation to create images during upload using AI models like DALL·E.
 
 
 !['image-generation'](/assets/1.0/images/magic-ai/image-generation.png)
 
----
+
 
 ## Translation
 
@@ -78,6 +76,7 @@ Magic AI helps translate product and category content into multiple languages.
 This keeps your catalog consistent across regions.
 
 ![Translation](/assets/1.0/images/magic-ai/translation.png)
+
 ---
 
 Magic AI makes UnoPim smarter and faster for managing product content.
