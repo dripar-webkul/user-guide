@@ -24,14 +24,14 @@ Make sure your PR follows all these points,
 
 - Run the following command,
 
-  ```sh
+  ~~~sh
   npm install
-  ```
+  ~~~
 
 - Run the docs locally,
 
-  ```sh
+  ~~~sh
   npm run docs:dev
-  ```
+  ~~~
 
 - Open your browser and go to [http://localhost:8080](http://localhost:8080).
