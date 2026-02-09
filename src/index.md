@@ -16,21 +16,35 @@ hero:
   image:
     src: /home-logo.png
     alt: UnoPim
+
 features:
   - title: Products and Categories
-    details: Learn how to create products and manage categories in UnoPim.
+    details: Create and manage product records and category hierarchies to maintain structured and consistent data.
     icon: 📦
     link: /1.0/products/
 
   - title: Users and Roles
-    details: Learn how to create and manage users and roles in UnoPim.
+    details: Configure users, roles, and permissions to control access and responsibilities within UnoPim.
     icon: 👥
     link: /1.0/settings/roles/
 
   - title: Locales and Currencies
-    details: Learn how to create and manage locales and currencies in UnoPim.
-    icon: 🌐
+    details: Set up locales and currencies to support multilingual and multi-currency product catalogs.
+    icon: 🌍
     link: /1.0/settings/locale/
 
+  - title: Attributes & Family
+    details: Define and assign attributes and families to standardize product information across catalogs.
+    icon: 🧩
+    link: /1.0/attribute/
 
+  - title: Import & Export
+    details: Import and export catalog data using supported file formats such as CSV, XLSX, and XLS.
+    icon: 🔁
+    link: /1.0/data-transfer/
+
+  - title: Integration & MagicAI
+    details: Connect UnoPim with external systems and use MagicAI to automate product data enrichment.
+    icon: 🤖
+    link: /1.0/configuration/
 ---
