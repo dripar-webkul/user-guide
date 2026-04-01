@@ -2,3 +2,4 @@
 .vitepress/dist
 .vscode
 node_modules/
+.playwright-mcp

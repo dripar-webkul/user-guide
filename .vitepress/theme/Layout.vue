@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { onMounted, onBeforeUnmount } from 'vue'
 import DefaultTheme from 'vitepress/theme'
+import VersionSelect from './components/VersionSelect.vue'
 
 const { Layout } = DefaultTheme
 
@@ -38,5 +39,8 @@ onBeforeUnmount(() => {
 
 <template>
   <Layout>
+    <template #nav-bar-content-after>
+      <VersionSelect class="vp-version-select" />
+    </template>
   </Layout>
 </template>
