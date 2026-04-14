@@ -6,7 +6,7 @@ Integration in UnoPim is crucial for ensuring that product data is consistent, a
 
 **Step 1-** Go to the Admin panel of UnoPim click on **Configurations >> Integration** and click on **Create**  button.
 
-   ![Configuration](/assets/2.0/images/configuration/configuration.png)
+   <ImagePopup src="/assets/2.0/images/configuration/configuration.png" alt="Configuration" />
 
 **Step 2:** Add the below fields.
 
@@ -20,18 +20,18 @@ Integration in UnoPim is crucial for ensuring that product data is consistent, a
 
 3) **Assign User-** Assign the user for the Integration.
 
-   ![Configuration](/assets/2.0/images/configuration/saveIntegration.png)
+   <ImagePopup src="/assets/2.0/images/configuration/saveIntegration.png" alt="Configuration" />
 
 **Step 3-** Now the option will get visible to generate the credentials as shown below.
 
-   ![Configuration](/assets/2.0/images/configuration/generate.png)
+   <ImagePopup src="/assets/2.0/images/configuration/generate.png" alt="Configuration" />
 
 **Step 4-** Now click on **Generate** button to generate API Keys.
 
-   ![Configuration](/assets/2.0/images/configuration/apiKey.png)
+   <ImagePopup src="/assets/2.0/images/configuration/apiKey.png" alt="Configuration" />
 
 **Step 5-** Now the Integration is created successfully for the assigned user in the Datagrid as shown in the image below.
 
-   ![Configuration](/assets/2.0/images/configuration/integrationOutput.png)
+   <ImagePopup src="/assets/2.0/images/configuration/integrationOutput.png" alt="Configuration" />
 
 So by this you can easily create your integration of API in UnoPim.

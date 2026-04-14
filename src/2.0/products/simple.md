@@ -4,7 +4,7 @@
 
 UnoPim supports a **Dark / Light Theme** toggle. Click the sun/moon icon in the top-right corner of the header bar (next to the notification bell) to switch between light and dark mode. Your preference is saved and persists across sessions.
 
-![Dark Theme](/assets/2.0/images/settings/dark-theme.png)
+<ImagePopup src="/assets/2.0/images/settings/dark-theme.png" alt="Dark Theme" />
 
 A simple product is the most basic and common product type. It's a physical, unique, standalone product without any other variations. 
 
@@ -15,7 +15,7 @@ This is the step-by-step tutorial on how to add a simple product in [UnoPim](htt
 ### To Create Simple Product in UnoPim
 1. Click on **Catalog >> Products >>** select product type **Simple**,**Family** and enter **SKU**.
 
- ![Simple](/assets/2.0/images/simple-product/simple.png) 
+<ImagePopup src="/assets/2.0/images/simple-product/simple.png" alt="Create Simple Product" />
 
 Now **Save the Product**, and you will get redirected to the Edit product page as shown below.
 
@@ -94,7 +94,7 @@ At last, **Save the Product**.
 
 Now the product is created successfully and it will be visible in **Products Data Grid** as shown in the below image.
 
- ![Datagrid](/assets/2.0/images/simple-product/datagrid.png) 
+<ImagePopup src="/assets/2.0/images/simple-product/datagrid.png" alt="Products Datagrid" />
 
 ## Product Completeness
 
@@ -142,7 +142,7 @@ To use bulk edit:
 
 The **Product Values Translation** feature allows you to translate product attribute values across all configured locales.
 
- ![Product Edit with Locale Switcher](/assets/2.0/images/simple-product/product-edit-locale.png)
+<ImagePopup src="/assets/2.0/images/simple-product/product-edit-locale.png" alt="Product Edit with Locale Switcher" />
 
 ### How to Translate Product Values Manually
 
@@ -211,7 +211,7 @@ You can quickly duplicate a product using the **Copy** action:
 
 The product datagrid supports **dynamic column management**. Click the **Columns** button above the datagrid to open the "Manage columns" modal.
 
-![Columns Selector](/assets/2.0/images/simple-product/columns-selector.png)
+<ImagePopup src="/assets/2.0/images/simple-product/columns-selector.png" alt="Columns Selector" />
 
 The modal shows two panels:
 

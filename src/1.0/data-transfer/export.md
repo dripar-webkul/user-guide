@@ -6,7 +6,7 @@ Exporting data to save information in files is a common practice for data manage
 
 **Step 1:** Go to the Admin panel of UnoPim click on **Data Transfer >> Exports** and click on Create Exports button.
 
-   ![Create Export](/assets/1.0/images/data-transfer/createExport.png)
+   <ImagePopup src="/assets/1.0/images/data-transfer/createExport.png" alt="Create Export" />
 
 **Step 2:** Under general configurations add the below fields.
 
@@ -22,21 +22,21 @@ Exporting data to save information in files is a common practice for data manage
 
 Now, click on **Save Export** button
 
-   ![Save Export](/assets/1.0/images/data-transfer/saveExport.png)
+   <ImagePopup src="/assets/1.0/images/data-transfer/saveExport.png" alt="Save Export" />
 
 **Step 3:** Now click on **Export Now** button as shown in the below image.
 
-   ![Export Now](/assets/1.0/images/data-transfer/exportNow.png)
+   <ImagePopup src="/assets/1.0/images/data-transfer/exportNow.png" alt="Export Now" />
 
 **Step 4:** Now click on **Data Transfer >> Job Tracker** where you see the status of your export process. After the status shows completed then the export process has been completed successfully.
 
 Now click on action to view you export data as shown in the below image.
 
-   ![Export Now](/assets/1.0/images/data-transfer/action.png)
+   <ImagePopup src="/assets/1.0/images/data-transfer/action.png" alt="Export Now" />
 
 **Step 5:** You can easily download your export file from here.
 
-   ![Export Output](/assets/1.0/images/data-transfer/exportOutput.png)
+   <ImagePopup src="/assets/1.0/images/data-transfer/exportOutput.png" alt="Export Output" />
 
 So by the above steps you can easily create Export Data in UnoPim.   
 

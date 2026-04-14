@@ -6,7 +6,7 @@ Exporting data to save information in files is a common practice for data manage
 
 **Step 1:** Go to the Admin panel of UnoPim click on **Data Transfer >> Exports** and click on Create Exports button.
 
- ![Export Listing](/assets/2.0/images/data-transfer/export-listing.png)
+ <ImagePopup src="/assets/2.0/images/data-transfer/export-listing.png" alt="Export Listing" />
 
 **Step 2:** Under general configurations add the below fields.
 
@@ -20,7 +20,7 @@ Exporting data to save information in files is a common practice for data manage
 
 Now, click on **Save Export** button
 
- ![Create Export Form](/assets/2.0/images/data-transfer/create-export-form.png)
+ <ImagePopup src="/assets/2.0/images/data-transfer/create-export-form.png" alt="Create Export Form" />
 
 The create export form has a two-panel layout:
 - **General panel (left)** — Code, Type (Products/Categories)
@@ -28,7 +28,7 @@ The create export form has a two-panel layout:
 
 **Step 3:** From the export listing, click the **Export** action icon (play icon) on the row of the export you want to run. This opens the export execution page.
 
- ![Export Execution Page](/assets/2.0/images/data-transfer/export-running.png)
+ <ImagePopup src="/assets/2.0/images/data-transfer/export-running.png" alt="Export Execution Page" />
 
 The execution page shows a summary of the export configuration:
 - **Export Profile** — The export code
@@ -41,7 +41,7 @@ Click the **Export Now** button to start processing.
 
 **Step 4:** After clicking Export Now, you are redirected to the **Job Tracker** page which shows real-time progress of your export.
 
- ![Export Progress](/assets/2.0/images/data-transfer/export-progress.png)
+ <ImagePopup src="/assets/2.0/images/data-transfer/export-progress.png" alt="Export Progress" />
 
 The tracker shows a **step pipeline** with visual progress indicators:
 

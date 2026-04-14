@@ -8,7 +8,7 @@ Whether it's the completion of a bulk import, a failed export job, or a product 
 
 To access your notifications, click the **Bell Icon** in the top navigation bar of the Admin panel. This opens the notification panel where you can view all recent alerts.
 
- ![Notification Panel](/assets/2.0/images/notifications/notification-panel.png)
+ <ImagePopup src="/assets/2.0/images/notifications/notification-panel.png" alt="Notification Panel" />
 
 ### Types of Notifications
 

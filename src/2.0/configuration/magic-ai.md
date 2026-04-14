@@ -6,7 +6,7 @@ The Magic AI section in the admin sidebar provides four sub-pages for managing A
 
 Navigate to **Magic AI >> Platforms** to manage your AI provider connections.
 
-![AI Platforms](/assets/2.0/images/magic-ai/ai-platforms.png)
+<ImagePopup src="/assets/2.0/images/magic-ai/ai-platforms.png" alt="AI Platforms" />
 
 The Platforms page displays a datagrid with the following columns:
 
@@ -30,7 +30,7 @@ Click the **Add Platform** button in the top-right corner. A modal opens with th
 4. **Models** — A multiselect field listing available models for the selected provider. Choose one or more models.
 5. **Status** — Toggle to enable or disable the platform.
 
-![Add Platform](/assets/2.0/images/magic-ai/add-platform.png)
+<ImagePopup src="/assets/2.0/images/magic-ai/add-platform.png" alt="Add Platform" />
 
 ::: tip
 API credentials are stored with encrypted credential storage for security. Your API keys are never stored in plain text.
@@ -46,7 +46,7 @@ API credentials are stored with encrypted credential storage for security. Your 
 
 Navigate to **Magic AI >> Settings** in the sidebar. This opens the configuration page at `/admin/configuration/general/magic_ai` with four sections.
 
-![Magic AI Settings](/assets/2.0/images/magic-ai/magic-ai-settings.png)
+<ImagePopup src="/assets/2.0/images/magic-ai/magic-ai-settings.png" alt="Magic AI Settings" />
 
 ### 1. Agentic PIM
 
@@ -107,7 +107,7 @@ Click **Save Configuration** at the bottom of the page to apply all changes.
 
 Navigate to **Magic AI >> Prompts** to manage custom prompts for AI content generation.
 
-![Prompts](/assets/2.0/images/magic-ai/prompts.png)
+<ImagePopup src="/assets/2.0/images/magic-ai/prompts.png" alt="Prompts" />
 
 The Prompts page displays a datagrid with the following columns:
 
@@ -145,7 +145,7 @@ Use attribute codes as placeholders (prefixed with `@`) in your prompts. The AI 
 
 Navigate to **Magic AI >> System Prompts** to configure the AI's personality and behavior for content generation.
 
-![System Prompts](/assets/2.0/images/magic-ai/system-prompts.png)
+<ImagePopup src="/assets/2.0/images/magic-ai/system-prompts.png" alt="System Prompts" />
 
 The System Prompts page displays a datagrid with the following columns:
 

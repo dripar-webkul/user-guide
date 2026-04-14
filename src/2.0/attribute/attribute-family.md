@@ -8,22 +8,22 @@ It can be specified as a list of attributes that are related to a unique product
 
 **Step 1**:- On the Admin Dashboard, click **Catalog** >> **Attribute Families** >> **Create Attribute Family**
 
- ![Attribute Family](/assets/2.0/images/attributes/createFamily.png)
+ <ImagePopup src="/assets/2.0/images/attributes/createFamily.png" alt="Attribute Family" />
 
 **Step 2**:- Now assign the attribute to your new attribute family from the Unassigned Attributes by dragging and dropping it according to your requirements.
 
 Then, enter the **Attribute Family Code** and **Name** as shown in the below image.
 
- ![Attribute Family](/assets/2.0/images/attributes/saveFamily.png)
+ <ImagePopup src="/assets/2.0/images/attributes/saveFamily.png" alt="Attribute Family" />
 
 At last, click on **Save Attribute Family** button.
 
 So now after creating a family the New Attribute Family is visible on the attribute family datagrid as shown in the below image.
 
- ![Attribute Family](/assets/2.0/images/attributes/new.png)
+ <ImagePopup src="/assets/2.0/images/attributes/new.png" alt="Attribute Family" />
 
 Afterward, to verify the output during the product creation process, you will be able to see the new Attribute family. Now all Attribute will be visible on the product page that belongs to these Attribute Families.
 
- ![Attribute Family](/assets/2.0/images/attributes/familyOutput.png)
+ <ImagePopup src="/assets/2.0/images/attributes/familyOutput.png" alt="Attribute Family" />
 
 By following the above steps, you can easily create an **Attribute Families** in UnoPim.

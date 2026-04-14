@@ -8,7 +8,7 @@ The feature works differently for each system and has a vast variety of use case
 
 **Step 1:** Go to the Admin panel of UnoPim click on **Data Transfer >> Imports >> Create Import**.
 
-   ![Create Import](/assets/1.0/images/data-transfer/createImport.png)
+   <ImagePopup src="/assets/1.0/images/data-transfer/createImport.png" alt="Create Import" />
 
 **Step 2:** Under general configurations add the below fields:
 
@@ -32,11 +32,11 @@ The feature works differently for each system and has a vast variety of use case
 
 Now, click on **Save Import** button.  
 
-   ![Save Import](/assets/1.0/images/data-transfer/saveImport.png)
+   <ImagePopup src="/assets/1.0/images/data-transfer/saveImport.png" alt="Save Import" />
 
 **Step 3:** Now click on **Import Now** button as shown in the below image.
 
-   ![Import Now](/assets/1.0/images/data-transfer/importNow.png)
+   <ImagePopup src="/assets/1.0/images/data-transfer/importNow.png" alt="Import Now" />
 
 **Step 4:** Now click on **Data Transfer >> Job Tracker** where you see the status of your import process. After the status got completed then the import process is been done successfully.
 
@@ -45,6 +45,6 @@ Also you can run the below command in the root of your UnoPim.
 **php artisan queue:listen**
 
 
-   ![Import Output](/assets/1.0/images/data-transfer/importOutput.png)
+   <ImagePopup src="/assets/1.0/images/data-transfer/importOutput.png" alt="Import Output" />
 
 So by the above steps you can easily create Import Data in UnoPim.

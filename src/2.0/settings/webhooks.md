@@ -8,7 +8,7 @@ The Webhook Settings page is located at **Configuration >> Webhooks** in the adm
 
 The **General** tab is where you enable the webhook and configure the destination URL. It uses a two-panel layout.
 
-![Webhook Settings](/assets/2.0/images/settings/webhook-settings.png)
+<ImagePopup src="/assets/2.0/images/settings/webhook-settings.png" alt="Webhook Settings" />
 
 ### Enable the Webhook and Set the URL
 
@@ -28,7 +28,7 @@ Use a service like [webhook.site](https://webhook.site) during development to in
 
 The **Logs** tab displays a record of every webhook request that UnoPim has sent. Use it to monitor delivery status and troubleshoot failures.
 
-![Webhook Logs](/assets/2.0/images/settings/webhook-logs.png)
+<ImagePopup src="/assets/2.0/images/settings/webhook-logs.png" alt="Webhook Logs" />
 
 The log datagrid includes the following columns:
 
@@ -51,7 +51,7 @@ If you see non-200 status codes in the logs, check that your endpoint is reachab
 
 The **History** tab tracks every change made to the webhook configuration itself. Use it to audit when settings were modified and by whom.
 
-![Webhook History](/assets/2.0/images/settings/webhook-history.png)
+<ImagePopup src="/assets/2.0/images/settings/webhook-history.png" alt="Webhook History" />
 
 The history datagrid includes the following columns:
 

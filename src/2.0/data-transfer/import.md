@@ -8,7 +8,7 @@ The feature works differently for each system and has a vast variety of use case
 
 **Step 1:** Go to the Admin panel of UnoPim click on **Data Transfer >> Imports >> Create Import**.
 
- ![Import Listing](/assets/2.0/images/data-transfer/import-listing.png)
+ <ImagePopup src="/assets/2.0/images/data-transfer/import-listing.png" alt="Import Listing" />
 
 **Step 2:** Under general configurations add the below fields:
 
@@ -32,7 +32,7 @@ The feature works differently for each system and has a vast variety of use case
 
 Now, click on **Save Import** button.  
 
- ![Create Import Form](/assets/2.0/images/data-transfer/create-import-form.png)
+ <ImagePopup src="/assets/2.0/images/data-transfer/create-import-form.png" alt="Create Import Form" />
 
 The create import form has a two-panel layout:
 - **General panel (left)** — Code, Type (Products/Categories), File upload area, Download Sample CSV link, Image Path
@@ -48,7 +48,7 @@ Import jobs support **dynamic filters** that allow you to configure advanced fil
 
 **Step 3:** From the import listing, click the **Import** action icon (play icon) on the row of the import you want to run. This opens the import execution page.
 
- ![Import Execution Page](/assets/2.0/images/data-transfer/import-running.png)
+ <ImagePopup src="/assets/2.0/images/data-transfer/import-running.png" alt="Import Execution Page" />
 
 The execution page shows a summary of the import configuration:
 - **Import Profile** — The import code
@@ -61,7 +61,7 @@ Click the **Import Now** button to start processing.
 
 **Step 4:** After clicking Import Now, you are redirected to the **Job Tracker** page which shows real-time progress of your import.
 
- ![Import Progress](/assets/2.0/images/data-transfer/import-progress.png)
+ <ImagePopup src="/assets/2.0/images/data-transfer/import-progress.png" alt="Import Progress" />
 
 The tracker shows a **step pipeline** with visual progress indicators:
 

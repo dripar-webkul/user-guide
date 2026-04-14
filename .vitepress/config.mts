@@ -68,9 +68,7 @@ export default defineConfig({
       formatOptions: { dateStyle: 'full' }
     },
 
-    socialLinks: [
-      { icon: 'github', link: 'https://github.com/unopim' }
-    ],
+    socialLinks: [],
 
     footer: {
       message:

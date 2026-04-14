@@ -6,7 +6,7 @@ The AI Agent Chat is your conversational interface for performing PIM operations
 
 To open the AI Agent Chat, click the **"Open Agenting PIM"** button located at the bottom-right corner of any page in the admin panel.
 
- ![AI Agent Chat](/assets/2.0/images/ai-agent/ai-agent-chat.png)
+ <ImagePopup src="/assets/2.0/images/ai-agent/ai-agent-chat.png" alt="AI Agent Chat" />
 
 The AI Agent panel header includes an **AI Settings** link that navigates to `/admin/ai-agent/settings`, where you can configure AI providers, models, and tool-level permissions.
 
@@ -15,7 +15,7 @@ The AI Agent panel includes three tabs:
 - **Chat** — Conversational interface to interact with the AI using natural language.
 - **Sessions** — View and manage your past chat sessions.
 
- ![AI Agent Chat Tab](/assets/2.0/images/ai-agent/ai-agent-chat-tab.png)
+ <ImagePopup src="/assets/2.0/images/ai-agent/ai-agent-chat-tab.png" alt="AI Agent Chat Tab" />
 
 Once opened, the chat panel slides in from the right side of the screen. You can start typing your request immediately.
 
@@ -157,7 +157,7 @@ As the AI Agent processes your request, the response streams into the chat in re
 
 The Sessions tab displays a list of your past chat conversations, making it easy to revisit previous interactions with the AI Agent.
 
- ![AI Agent Sessions](/assets/2.0/images/ai-agent/ai-agent-sessions.png)
+ <ImagePopup src="/assets/2.0/images/ai-agent/ai-agent-sessions.png" alt="AI Agent Sessions" />
 
 Each session entry shows the following details:
 

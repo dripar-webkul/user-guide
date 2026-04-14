@@ -8,7 +8,7 @@ Category fields generally refer to specific attributes or types of information u
 
 1) Click on **Catalog >> Category Field >> Click Category Field** button  as shown in the below image.
 
-   ![Category Field](/assets/2.0/images/category/createField.png)
+   <ImagePopup src="/assets/2.0/images/category/createField.png" alt="Category Field" />
 
 2) Now enter the **Code** and **Type** inside the general section.
 
@@ -36,31 +36,31 @@ Category fields generally refer to specific attributes or types of information u
  
 **Note -** The **Is Unique** Validation is only available for Type - **Text, Datetime & Date**
 
-   ![General](/assets/2.0/images/category/general.png)
+   <ImagePopup src="/assets/2.0/images/category/general.png" alt="General" />
 
 3) Enter the Label of your category field as shown in the below image.
 
-   ![Label](/assets/2.0/images/category/label.png)
+   <ImagePopup src="/assets/2.0/images/category/label.png" alt="Label" />
 
 4) Select the Validation if you want to make your category field as a required field.
 
-   ![Validation](/assets/2.0/images/category/validation.png)
+   <ImagePopup src="/assets/2.0/images/category/validation.png" alt="Validation" />
 
 5) Select the field if you want to make the category field value as per the locale.
 
 This allows you to manage the category field for different locale in the category.
 
-   ![Configuration](/assets/2.0/images/category/configuration.png)
+   <ImagePopup src="/assets/2.0/images/category/configuration.png" alt="Configuration" />
 
 6) Now in the settings option enable the **status** of the field enter the **position** of your field at where you want to place this field as a sort order while creating a category and then select the display section as a general section or configurable section. 
 
-   ![Settings](/assets/2.0/images/category/setting.png)
+   <ImagePopup src="/assets/2.0/images/category/setting.png" alt="Settings" />
 
 At Last click on **Save Category Field** button and the new category field is created successfully as shown in the image below.
 
-   ![Datagrid](/assets/2.0/images/category/fielddataGrid.png)
+   <ImagePopup src="/assets/2.0/images/category/fielddataGrid.png" alt="Datagrid" />
 
 Now go to **Catalog >> Categories >> Create Category** and you are able to see the **New Category Field** while creating or updating category.
 
-   ![Output](/assets/2.0/images/category/output.png)
+   <ImagePopup src="/assets/2.0/images/category/output.png" alt="Output" />
 

@@ -21,7 +21,7 @@ With Magic AI, you can effortlessly generate engaging **Products & Categories** 
 * **Groq (xAI)** – deepseek-r1-distill-llama-70b, llama-3.1-8b-instant, openai/gpt-oss-120b, openai/gpt-oss-20b, groq/compound, qwen/qwen3-32b, moonshotai/kimi-k2-instruct-0905
 
 
-![Magic Content](/assets/1.0/images/magic-ai/content.png)
+<ImagePopup src="/assets/1.0/images/magic-ai/content.png" alt="Magic Content" />
 
 Say goodbye to time-consuming manual content creation as Magic AI crafts compelling and unique descriptions, saving you valuable time and effort.
 

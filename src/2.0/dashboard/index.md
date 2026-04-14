@@ -2,7 +2,7 @@
 
 The Dashboard is the first page you see after logging in to [UnoPim](https://unopim.com/). It provides a complete overview of your product catalog, activity, and data quality at a glance, helping you quickly understand the state of your PIM and take action where needed.
 
-![Dashboard Overview](/assets/2.0/images/dashboard/dashboard-overview.png)
+<ImagePopup src="/assets/2.0/images/dashboard/dashboard-overview.png" alt="Dashboard Overview" />
 
 ## Welcome Banner
 

@@ -6,7 +6,7 @@ It refer to the individuals who interact with the system, including roles such a
 
 **Step 1:** It can be set on the admin panel by going to **Setting >> Users**. Here you can create new users by clicking on the button **Create User** as shown in below image.
 
-![Create User](/assets/2.0/images/settings/createUser.png)
+<ImagePopup src="/assets/2.0/images/settings/createUser.png" alt="Create User" />
 
 **Step 2:** Now add the below fields
 
@@ -28,10 +28,10 @@ It refer to the individuals who interact with the system, including roles such a
 
 At Last, click on **Save User** button.
 
-  ![User](/assets/2.0/images/settings/saveUser.png)
+  <ImagePopup src="/assets/2.0/images/settings/saveUser.png" alt="User" />
 
 **Step 3:** Now a new user is created successfully in the user datagrid as shown in the below image.
 
-  ![User Grid](/assets/2.0/images/settings/userGrid.png)
+  <ImagePopup src="/assets/2.0/images/settings/userGrid.png" alt="User Grid" />
 
 So by this you can easily create a Users in UnoPim.
