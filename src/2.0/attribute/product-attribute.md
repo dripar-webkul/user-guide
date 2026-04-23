@@ -1,114 +1,110 @@
 # Product Attribute
 
-An Attribute is a specification or characteristic of a product for example Color, Size, and Pattern an attribute of a T-Shirt. 
-
-You can create as many attributes for a single product. Product Attribute plays a major factor.
+An Attribute is a specification or characteristic of a product — Color, Size, and Pattern are all attributes of a T-Shirt. You can create as many attributes per product as you need; the full set of attributes is what gives each product its shape and searchability.
 
 ### How to Create a Product Attribute in UnoPim
 
-To Create UnoPim Attributes, open the Admin Panel and then follow the below steps.
+Open the Admin Panel and follow the steps below.
 
 ### Add Attributes
 
-**Step-1** Click on **Catalog** >> **Attributes** >> **Create Attributes** as shown in the below image.
+**Step 1** — Click **Catalog >> Attributes >> Create Attributes**.
 
-<!-- TODO: Add screenshot of create attribute page -->
+<ImagePopup src="/assets/2.0/images/attributes/createAttribute.png" alt="Create Attribute" />
 
-**Step-2** Now enter the **Code** and **Data Type** inside the general section.
+**Step 2** — Enter the **Code** and **Data Type** in the general section.
 
-<!-- TODO: Add screenshot of general section -->
+<ImagePopup src="/assets/2.0/images/attributes/general.png" alt="General section" />
 
-**Note -** The **Is Unique** Validation is only available for Type - **Text, Datetime & Date**
+**Note** — The **Is Unique** validation is only available for types **Text, Datetime & Date**.
 
-**Step-3** Enter the Label of your Attribute as shown in the below image.
+**Step 3** — Enter the **Label** of your Attribute.
 
-<!-- TODO: Add screenshot of label section -->
+<ImagePopup src="/assets/2.0/images/attributes/label.png" alt="Label section" />
 
-**Step-4** Select the Validation if you want to make your Attribute as a required field or Unique.
+**Step 4** — Select **Validation** if you want the Attribute to be required or unique.
 
-**Note -** The **Is Unique** Validation is only available for Type - **Text, Datetime & Date**
+**Note** — The **Is Unique** validation is only available for types **Text, Datetime & Date**.
 
-<!-- TODO: Add screenshot of validation section -->
+<ImagePopup src="/assets/2.0/images/attributes/validation.png" alt="Validation section" />
 
-**Step-5** Select the field if you want to make the Attribute value as per the locale and value as per the channel.
+**Step 5** — Choose whether the attribute value should be per-locale and/or per-channel.
 
-<!-- TODO: Add screenshot of configuration section -->
+<ImagePopup src="/assets/2.0/images/attributes/configuration.png" alt="Configuration section" />
 
-Now, click on **Save Attribute** button and then the attribute is created successfully in the Datagrid.
+Click **Save Attribute**. The new attribute appears in the Datagrid.
 
-<!-- TODO: Add screenshot of attribute datagrid -->
+<ImagePopup src="/assets/2.0/images/attributes/output.png" alt="Attribute Datagrid" />
 
-Now **Save the Attribute** and then go to the Attribute Family from **Catalog >> Attribute Families** and assign it from the unassigned attribute by drag and drop at your desired place.
+Next, go to **Catalog >> Attribute Families**, open the family you want the attribute in, and drag the attribute from the unassigned list into the desired group.
 
-<!-- TODO: Add screenshot of attribute family assignment -->
+<ImagePopup src="/assets/2.0/images/attributes/family.png" alt="Attribute Family assignment" />
 
-Now, **Save Attribute Family** and check the output while creating products on the product edit page.
+Save the family, then open any product in that family — the attribute now appears on the edit form.
 
-<!-- TODO: Add screenshot of attribute in product edit -->
+<ImagePopup src="/assets/2.0/images/attributes/product.png" alt="Attribute shown on product edit page" />
 
 ### A Visual Breakdown of UnoPim Product Data Types
 
-**1) Text** - A field that allows the user to enter a single line of text. It is typically used for short inputs like names, email addresses, or search queries.
+**1) Text** — A field for a single line of text. Typical for short inputs like names or URL keys.
 
-<!-- TODO: Add screenshot of text attribute -->
+<ImagePopup src="/assets/2.0/images/attributes/text.png" alt="Text attribute" />
 
-**2) Textarea** - A field that provides a larger area for users to input multi-line text. It's useful for longer responses or comments, such as descriptions or messages. 
+**2) Textarea** — A multi-line text field. Used for longer content like product descriptions or comments. You can enable/disable the WYSIWYG editor.
 
-Additionally, you can Enable/Disable the Wysiwyg Editor.
+<ImagePopup src="/assets/2.0/images/attributes/textarea.png" alt="Textarea attribute" />
 
-<!-- TODO: Add screenshot of textarea attribute -->
+**3) Boolean** — True / false toggle. Used for yes/no or on/off selections.
 
-**3) Boolean** - Represents a true or false value. It's often used in forms to capture yes/no or on/off selections.
+<ImagePopup src="/assets/2.0/images/attributes/boolean.png" alt="Boolean attribute" />
 
-<!-- TODO: Add screenshot of boolean attribute -->
+**4) Select** — A dropdown allowing one choice from a predefined list.
 
-**4) Select** - A dropdown menu that allows users to choose one option from a list. It's useful for making selections where only one option should be chosen from a predefined set of options.
+<ImagePopup src="/assets/2.0/images/attributes/select.png" alt="Select attribute" />
 
-<!-- TODO: Add screenshot of select attribute -->
+**5) Multiselect** — Like Select but allows multiple choices from the list.
 
-**5) Multiselect** - Similar to a select field but allows users to choose multiple options from a list. It's useful when multiple selections are valid and necessary.
+<ImagePopup src="/assets/2.0/images/attributes/multiselect.png" alt="Multiselect attribute" />
 
-<!-- TODO: Add screenshot of multiselect attribute -->
+**6) Datetime** — Pick a specific date and time. Used for scheduling and timestamps.
 
-**6) Datetime** - A field that allows users to select a specific date and time. It's often used for scheduling or timestamping events.
+<ImagePopup src="/assets/2.0/images/attributes/datetime.png" alt="Datetime attribute" />
 
-<!-- TODO: Add screenshot of datetime attribute -->
+**7) Date** — Pick a date only (no time component).
 
-**7) Date** - A field that allows users to select or input a date only (without time). It's used for choosing a specific day in forms and calendars.
+<ImagePopup src="/assets/2.0/images/attributes/date.png" alt="Date attribute" />
 
-<!-- TODO: Add screenshot of date attribute -->
+**8) Gallery** — Manages multiple images **and videos** per product. In v1.0.0 UnoPim added video support to galleries:
 
-**8) Gallery** - A Gallery attribute that allows managing and displaying multiple images and **videos** per product, enhancing the product media experience.
+1) Edit gallery images without changing their position.
+2) Drag-and-drop to reorder images.
+3) **Video Support** — upload and manage video files alongside images.
 
-1) The media attribute provides the ability to edit gallery images without changing their position.
-2) Change the image position by dragging and dropping the gallery images.
-3) **Video Support** — You can now upload and manage video files in the gallery alongside images.
-
-<!-- TODO: Add screenshot of gallery attribute with video -->
+<ImagePopup src="/assets/2.0/images/attributes/gallery.png" alt="Gallery attribute with video" />
 
 ::: tip
-Video support in the gallery attribute was introduced in v1.0.0. You can upload common video formats directly to your product gallery.
+Video support in the gallery attribute was introduced in v1.0.0. You can upload common video formats directly to the product gallery.
 :::
 
-**9) Image** - A field for uploading or displaying image. Users can either upload an image file or view an image that's already been uploaded.
+**9) Image** — Upload or display a single image.
 
-<!-- TODO: Add screenshot of image attribute -->
+<ImagePopup src="/assets/2.0/images/attributes/image.png" alt="Image attribute" />
 
-**10) File** - A field that allows users to upload files. It can accept various file types, such as documents, images, or other file formats.
+**10) File** — Upload arbitrary files (documents, images, etc.).
 
-<!-- TODO: Add screenshot of file attribute -->
+<ImagePopup src="/assets/2.0/images/attributes/file.png" alt="File attribute" />
 
-**11) Checkbox** - A small box that can be checked or unchecked. It's used for binary choices, where a user can select or deselect an option, often used for agreements or preferences.
+**11) Checkbox** — A toggleable checkbox for binary selections (agreements, preferences).
 
-<!-- TODO: Add screenshot of checkbox attribute -->
+<ImagePopup src="/assets/2.0/images/attributes/checkbox.png" alt="Checkbox attribute" />
 
-**12) Price** - This input type is used to create price fields that are in addition to the predefined attributes: Prices.
+**12) Price** — A price field in addition to the predefined **Prices** attribute.
 
-<!-- TODO: Add screenshot of price attribute -->
+<ImagePopup src="/assets/2.0/images/attributes/price.png" alt="Price attribute" />
 
 ## Swatch Types
 
-UnoPim v2.0 introduces **Swatch Types** for **Select** and **Multiselect** attributes. Swatches provide a visual representation of attribute options, making it easier for users to identify and select values.
+UnoPim v2.0 introduces **Swatch Types** for **Select** and **Multiselect** attributes. Swatches give options a visual representation, making them easier to identify and pick.
 
 ### Types of Swatches
 
@@ -121,18 +117,16 @@ UnoPim v2.0 introduces **Swatch Types** for **Select** and **Multiselect** attri
 
 ### How to Enable Swatch Types
 
-1. Create or edit a **Select** or **Multiselect** attribute
-2. In the attribute configuration, select the **Swatch Type** from the dropdown
+1. Create or edit a **Select** or **Multiselect** attribute.
+2. In the attribute configuration, select the **Swatch Type** from the dropdown.
 3. For each attribute option, configure the swatch value:
-   - **Color swatch**: Enter a hex color code (e.g., `#FF0000` for red)
-   - **Image swatch**: Upload a small image for each option
-   - **Text swatch**: Enter display text for each option
-4. Click **Save Attribute**
-
-<!-- TODO: Add screenshot of swatch type configuration -->
+   - **Color swatch** — enter a hex color code (e.g., `#FF0000` for red).
+   - **Image swatch** — upload a small image for each option.
+   - **Text swatch** — enter display text for each option.
+4. Click **Save Attribute**.
 
 ::: tip
-Swatch types are especially useful for attributes like Color, Material, or Pattern where a visual representation helps users quickly identify options.
+Swatch types are especially useful for attributes like Color, Material, or Pattern where a visual representation helps users pick options quickly.
 :::
 
 By following the above steps, you can easily create a **Product Attribute** in UnoPim.

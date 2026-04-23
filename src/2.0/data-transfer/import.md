@@ -6,7 +6,7 @@ The feature works differently for each system and has a vast variety of use case
 
 ### Steps to add Bulk Import in UnoPim
 
-**Step 1:** Go to the Admin panel of UnoPim click on **Data Transfer >> Imports >> Create Import**.
+**Step 1:** Go to the Admin panel of UnoPim and click on **Data Transfer >> Imports** in the sidebar then click the **Create Import** button.
 
  <ImagePopup src="/assets/2.0/images/data-transfer/import-listing.png" alt="Import Listing" />
 
@@ -34,6 +34,10 @@ Now, click on **Save Import** button.
 
  <ImagePopup src="/assets/2.0/images/data-transfer/create-import-form.png" alt="Create Import Form" />
 
+ <ImagePopup src="/assets/2.0/images/data-transfer/createImport.png" alt="Create Import" />
+
+ <ImagePopup src="/assets/2.0/images/data-transfer/saveImport.png" alt="Save Import" />
+
 The create import form has a two-panel layout:
 - **General panel (left)** — Code, Type (Products/Categories), File upload area, Download Sample CSV link, Image Path
 - **Settings panel (right)** — Action (Create/Update), Validation Strategy (Stop on Errors/Skip Errors), Allowed Errors, Field Separator
@@ -56,6 +60,14 @@ The execution page shows a summary of the import configuration:
 - **Action Mode** — Create/Update or Delete
 
 Click the **Import Now** button to start processing.
+
+ <ImagePopup src="/assets/2.0/images/data-transfer/importNow.png" alt="Import Now button" />
+
+ <ImagePopup src="/assets/2.0/images/data-transfer/importOutput.png" alt="Import Output" />
+
+ <ImagePopup src="/assets/2.0/images/data-transfer/edit-import.png" alt="Edit Import" />
+
+ <ImagePopup src="/assets/2.0/images/data-transfer/action.png" alt="Import action" />
 
 ## Import/Export Tracker
 

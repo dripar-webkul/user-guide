@@ -1,134 +1,176 @@
 # Configurable Product
 
-It refers to a type of product that offers various options or variations, such as size, color, or features, which can be selected by the customer. The PIM system manages these options and their associated attributes, ensuring accurate and comprehensive product information across different configurations.
+A **Configurable Product** is a single catalog entry that groups multiple variants — each with its own SKU — under one parent. It's what you use when one product comes in several *options* (size, colour, material) and you want all those options managed together instead of as disconnected Simple Products.
 
-Configurable products are designed to meet individual needs, enhancing customer satisfaction and providing a tailored experience in [UnoPim](https://unopim.com/).
+## What is a Configurable Product?
 
-### Create Configurable Product in UnoPim
+| | Configurable Product |
+|---|---|
+| **Structure** | One parent SKU + N child variants (each with its own SKU). |
+| **When to use it** | The item has variations — T-shirts in S/M/L × Red/Blue/Green, shoes in different sizes, phone cases in different colours. |
+| **Typical examples** | A T-shirt sold in 3 sizes × 4 colours, a sofa in 3 fabric options, a laptop in multiple storage tiers. |
+| **Compare with** | [Simple Product](./simple.md) — use that when there are no variants or each variant is genuinely a separate product. |
 
-1. Click on **Catalog >> Products >>** select **Configurable** , **Family** and enter **SKU** under Product Type .
+The attributes that define the variants are called **super attributes** (or *configurable attributes*) — these are the axes along which the product varies (e.g., `size`, `color`). Every other attribute (description, category, images, associations) is edited on the parent and inherited by variants unless you override it.
 
-<!-- TODO: Add screenshot of configurable product creation -->
+## How does it work?
 
-Now click on **Save the Product**, and now select the **configurable attributes** as per your requirements, and then click on **Save Product** button.
+A Configurable Product is created in three phases:
 
-### Configurable (Super) Attributes
+1. **Create the parent** — set product type to `Configurable`, pick a family, enter a SKU, and choose the **super attributes** that will define variants.
+2. **Fill in parent attributes** — description, categories, images, pricing, associations. Everything that should be shared across variants goes here.
+3. **Add variants** — in the **Variations** section, create one child per combination (e.g., `Size=M, Color=Red`). Each child has its own SKU and can override variant-specific values.
 
-When creating a configurable product, you need to select **super attributes** — these are the attributes that define the variations of your product (e.g., Size, Color). 
+At runtime, the parent acts as the public-facing record and the variants hold the option-specific data (and often their own stock, price, image).
 
-In UnoPim v2.0, configurable product super attributes are fully supported with:
-- Flexible super attribute selection during product creation
-- Support for **variants_json** format for programmatic variant definition
-- Size-based variants with configurable seeder support
+## How to Create a Configurable Product
 
-<!-- TODO: Add screenshot of super attribute selection -->
+### Step 1 — Start creation
 
-### General Attributes
+1. Click **Catalog >> Products >> Create Product**.
+2. Select product type **Configurable**.
+3. Pick the **Family**.
+4. Enter the parent **SKU**.
+5. Click **Save**.
 
-It displays the attributes assigned in the product's family grouped by attribute group. 
+<ImagePopup src="/assets/2.0/images/configurable-product/configurable.png" alt="Create Configurable Product" />
 
-The below given are required attributes present in the "default" family
+UnoPim redirects you to the edit page and prompts you to select super attributes.
 
-1) Enter **SKU** of the product
+### Step 2 — Pick super attributes
 
-2) Enter **Name** of the product
+Super attributes are the axes the product varies along — typically ones with Select or Multiselect data types (e.g., `size`, `color`). Only attributes flagged as *usable for variants* on the family appear here.
 
-3) Now enter the **URL Key** of the product
+<ImagePopup src="/assets/2.0/images/configurable-product/configurableAttributes.png" alt="Configurable Super Attributes" />
 
-<!-- TODO: Add screenshot of configurable product edit page -->
+v2.0 also supports:
 
-### Short Description
-Enter a short description of the features of the product.
+- **Flexible super attribute selection** during product creation.
+- **`variants_json`** format for programmatic / bulk variant definition.
+- **Size-based variant seeder** for generating size grids quickly.
 
-### Description
-Mention your product in detail.
-
-<!-- TODO: Add screenshot of description fields -->
-
-### Technical
-
-Now Enable the product from the status option as shown below.
-
-<!-- TODO: Add screenshot of status toggle -->
-
-### Categories
-
-You can also assign the product into the root category as shown in the below image.
-
-<!-- TODO: Add screenshot of category assignment -->
-
-### Variations
-
-Now enter the variations of the product. Click on **Add Product** to add a new variant.
-
-<!-- TODO: Add screenshot of variations section -->
-
-Now add the variant — enter the configurable attributes and then click on **Add button**.
-
-<!-- TODO: Add screenshot of add variant form -->
-
-You can add as many variants as per the requirements of the product.
-
-### Associations
-
-Also, you can add the Related Products, Upsell Products, and Cross-Sell Products.
-
-**1) Related Products -** Related products are products that are similar to a selected product. You can display potential substitutes help to them discover other similar products they might like. 
-
-To add Related Products click on Add in the Related Products section and search the product through the SKU which you want to add as a Related Product. 
-
-Now click on **Add Selected Product** button.
-
-**2) Up-Sell Products -** Upselling is the practice of selling a higher-end version of an item they're interested in.
-
-For instance, an electronics retailer pointing out the benefits of a better TV, a faster laptop, or a more durable tablet would be an example of upselling.
-
-To add Up-Sell Products click on add in the Up-Sell Products section and search the product through the SKU which you want to add as a Up-Sell Product. 
-
-Now click on **Add Selected Product** button.
-
-**3) Cross-Sell Products -** Cross-sells are products that you promote, based on the current product. They are typically complementary items. For example, if you are selling a laptop, cross-sells might be protective case stickers or a special adapter.
-
-To add Cross-Sell Products click on add in the Cross-Sell Products section and search the product through SKU which you want to add as a Cross-Sell Product. 
-
-Now click on **Add Selected Product** button.
-
-You can also add as many products as per your requirements.
-
-At last, **Save the Product**.
-
-Now the product has been created successfully and will be visible in the Products Data Grid.
-
-<!-- TODO: Add screenshot of configurable product in datagrid -->
-
-## Product Completeness
-
-Configurable products also benefit from the **Product Completeness** system. The completeness score evaluates both the parent product and its variants, providing a holistic quality score.
-
-- Completeness is calculated per channel and per locale
-- The dashboard shows completeness percentages for each channel
-- Low-completeness products are flagged for attention
-
-::: tip
-Focus on completing the parent product attributes first, then ensure each variant has its required attribute values filled in.
+::: warning
+Super attributes are **locked after variants are created**. Plan the variant axes up front — changing them later requires deleting and recreating variants.
 :::
 
-## Product Bulk Edit
+### Step 3 — Fill in parent attributes
 
-You can use **Bulk Edit** to update multiple configurable products at once. Select products from the datagrid and apply bulk changes to shared attributes.
+Like a Simple Product, the parent edit page groups attributes by **Attribute Group** (General, Descriptions, Categories, Associations, …). Exactly which groups appear depends on the family.
 
-<!-- TODO: Add screenshot of bulk edit for configurable products -->
+The `default` family requires at minimum:
 
-## Product History
+| Field | Meaning |
+|---|---|
+| **SKU** | Parent SKU — the identifier for the configurable record. |
+| **Name** | Display name shared by all variants. |
+| **URL Key** | URL-safe slug for storefront linking. |
 
-You can view the product history by navigating to **Catalog >> Products >> Edit Product** and clicking on **History**.
+Other sections to fill on the parent:
 
-<!-- TODO: Add screenshot of product history -->
+| Section | Purpose |
+|---|---|
+| **Short Description** | Variant-agnostic summary. |
+| **Description** | Full copy — usually shared across variants. |
+| **Technical** | Status toggle — enables/disables the whole configurable set. |
+| **Categories** | Category assignment for the configurable (applies to all variants). |
+| **Associations** | Related / Up-sell / Cross-sell products (see below). |
 
-## Quick Export
+<ImagePopup src="/assets/2.0/images/configurable-product/editProduct.png" alt="Configurable Product Edit Page" />
 
-You can quickly export your data into **CSV, XLS, XLSX** format directly from the product listing.
+<ImagePopup src="/assets/2.0/images/configurable-product/description.png" alt="Description fields" />
 
-<!-- TODO: Add screenshot of quick export -->
+<ImagePopup src="/assets/2.0/images/configurable-product/status.png" alt="Status toggle" />
 
-**Note:** Attributes that support values per channel will display a channel badge, while attributes that support values per locale will display a locale badge. If an attribute supports both values per channel and values per locale, it will display both badges.
+<ImagePopup src="/assets/2.0/images/configurable-product/category.png" alt="Category assignment" />
+
+### Step 4 — Add variants
+
+Scroll to the **Variations** section and click **Add Product** to create a child variant.
+
+<ImagePopup src="/assets/2.0/images/configurable-product/variant.png" alt="Variations section" />
+
+For each variant:
+
+1. Enter the values for the super attributes (e.g., `Size = M`, `Color = Red`).
+2. Optionally override any variant-specific fields (SKU, price, image).
+3. Click **Add** to save the variant.
+
+<ImagePopup src="/assets/2.0/images/configurable-product/addVariant.png" alt="Add Variant form" />
+
+You can add as many variants as the product needs. A T-shirt with Size × Color = 3 × 4 needs 12 variants; the size-based seeder can speed this up.
+
+### Step 5 — Add associations
+
+At the bottom of the parent edit page, link this configurable to other products:
+
+| Association | When to use it |
+|---|---|
+| **Related Products** | Similar alternatives customers may also like. |
+| **Up-Sell Products** | Higher-end versions — a premium jacket line, a faster laptop. |
+| **Cross-Sell Products** | Complementary items — socks with shoes, cables with electronics. |
+
+For each section, click **Add**, search by SKU, select, and confirm.
+
+<ImagePopup src="/assets/2.0/images/configurable-product/upsell.png" alt="Associations — Up-sell Products" />
+
+### Step 6 — Save
+
+Click **Save Product**. The configurable and its variants appear in the Products Data Grid.
+
+<ImagePopup src="/assets/2.0/images/configurable-product/save.png" alt="Save Configurable Product" />
+
+<ImagePopup src="/assets/2.0/images/configurable-product/datagrid.png" alt="Configurable Product in Datagrid" />
+
+<ImagePopup src="/assets/2.0/images/configurable-product/final.png" alt="Final Configurable Product" />
+
+::: tip
+Attributes with a **channel badge** hold values per channel; with a **locale badge**, per locale; with both, per channel **and** per locale. This applies to the parent and to variants.
+:::
+
+## Working with a Configurable Product after creation
+
+Configurable products support the same lifecycle features as Simple Products — completeness, translation, bulk edit, history, export, copy. A few behaviours are specific to configurables:
+
+### Completeness
+
+The completeness engine evaluates **both the parent and its variants**. The aggregated score accounts for missing required attributes at either level, so even a well-filled parent with an empty variant can drag the score down.
+
+- Completeness is calculated per channel **and** per locale.
+- The Dashboard's **Completeness** widget rolls up all products, including configurables.
+- Low-completeness variants are flagged for attention alongside the parent.
+
+::: tip
+Fill in the parent attributes first (description, images, categories). Then sweep through variants to set the variant-specific values (SKU, price, per-variant image). Working top-down is faster than jumping between variants.
+:::
+
+### Translation
+
+Locale-specific fields on the parent and on each variant can be translated manually (locale switcher at the top of the edit page) or automatically via **[Magic AI — Settings](../magic-ai/settings.md)** Translation. The same workflow applies to both product types — see [Simple Product → Translate values across locales](./simple.md#translate-values-across-locales).
+
+### Bulk edit
+
+Use **Bulk Edit** on the Products listing to update attributes across many configurable products at once. Select the rows, pick the attribute, enter the value, apply. See [Simple Product → Bulk edit](./simple.md#bulk-edit).
+
+### History
+
+Click the **History** tab on the parent edit page for an audit trail of every change — attribute edits, status flips, category changes, association changes. Each variant also has its own history accessible from its individual edit view.
+
+<ImagePopup src="/assets/2.0/images/configurable-product/history.png" alt="Configurable Product History" />
+
+<ImagePopup src="/assets/2.0/images/configurable-product/preview.png" alt="History entry detail" />
+
+### Quick Export
+
+Select the configurable(s) in **Catalog >> Products** and use **Quick Export** to download in CSV, XLS, or XLSX. The export includes the parent record and its variants. For scheduled or filtered exports, use the full **[Export](../data-transfer/export.md)** workflow.
+
+<ImagePopup src="/assets/2.0/images/configurable-product/export.png" alt="Quick Export" />
+
+<ImagePopup src="/assets/2.0/images/configurable-product/exportOutput.png" alt="Export Output" />
+
+## Related reading
+
+- **[Simple Product](./simple.md)** — for standalone SKUs with no variants.
+- **[Attribute Family](../attribute/attribute-family.md)** — controls which attributes (including candidate super attributes) a configurable can use.
+- **[Product Attribute](../attribute/product-attribute.md)** — how to mark an attribute as usable for variants.
+- **[Magic AI — Settings](../magic-ai/settings.md)** — auto-translate variant content across locales.
+- **[AI Agent Chat](../ai-agent/ai-agent-chat.md)** — v2.0-beta.1 introduced AI Agent support for creating and managing configurable products via chat.

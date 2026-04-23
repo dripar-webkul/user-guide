@@ -4,7 +4,7 @@ Integration in UnoPim is crucial for ensuring that product data is consistent, a
 
 ### Magic AI
 
-Magic AI is the ultimate tool for professionals looking to enhance their efficiency in product information management. UnoPim integrates Magic AI with support for **10+ AI providers** including OpenAI, Gemini, Ollama, and Groq.
+Magic AI is the ultimate tool for professionals looking to enhance their efficiency in product information management. UnoPim integrates Magic AI with support for **10+ AI providers** including OpenAI, Anthropic, Gemini, Ollama, and Groq.
 
 Key capabilities include:
 - **Content Generation** — Automatically generate product descriptions, SEO content, and more

@@ -4,7 +4,7 @@ Exporting data to save information in files is a common practice for data manage
 
 ### Steps to add Bulk Export in UnoPim
 
-**Step 1:** Go to the Admin panel of UnoPim click on **Data Transfer >> Exports** and click on Create Exports button.
+**Step 1:** Go to the Admin panel of UnoPim and click on **Data Transfer >> Exports** in the sidebar, then click the **Create Export** button.
 
  <ImagePopup src="/assets/2.0/images/data-transfer/export-listing.png" alt="Export Listing" />
 
@@ -22,6 +22,10 @@ Now, click on **Save Export** button
 
  <ImagePopup src="/assets/2.0/images/data-transfer/create-export-form.png" alt="Create Export Form" />
 
+ <ImagePopup src="/assets/2.0/images/data-transfer/createExport.png" alt="Create Export" />
+
+ <ImagePopup src="/assets/2.0/images/data-transfer/saveExport.png" alt="Save Export" />
+
 The create export form has a two-panel layout:
 - **General panel (left)** — Code, Type (Products/Categories)
 - **Filters panel (right)** — File Format (CSV/XLS/XLSX dropdown), With Media (toggle)
@@ -36,6 +40,10 @@ The execution page shows a summary of the export configuration:
 - **With Media** — Yes or No
 
 Click the **Export Now** button to start processing.
+
+ <ImagePopup src="/assets/2.0/images/data-transfer/exportNow.png" alt="Export Now button" />
+
+ <ImagePopup src="/assets/2.0/images/data-transfer/exportOutput.png" alt="Export Output" />
 
 ## Export Tracker
 

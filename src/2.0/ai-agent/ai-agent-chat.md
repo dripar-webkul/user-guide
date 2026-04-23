@@ -1,6 +1,41 @@
 # AI Agent Chat
 
-The AI Agent Chat is your conversational interface for performing PIM operations. Through this chat window, you can interact with the AI Agent using natural language to manage products, categories, data quality, and more.
+The **AI Agent Chat** is the conversational UI for Agentic PIM. From one chat window you can manage products, categories, attributes, data quality, and bulk operations — just by describing what you need.
+
+## What does the AI Agent Chat do?
+
+The chat panel is a single entry point for **30+ PIM tools**. When you type a message, the agent:
+
+- Interprets your intent.
+- Picks one or more tools to call (create product, search, bulk-edit, generate content, manage associations, etc.).
+- Runs the tools against real UnoPim data, inside your ACL permissions.
+- Streams the results back into the chat in real time.
+
+Anything you can do from the admin UI, you can do by asking for it in the chat — and the agent can chain several steps into one request, so tasks that would take many clicks collapse into a single instruction.
+
+## How does it work?
+
+```
+You type a message
+        │
+        ▼
+Agent reads: message + session history + remembered facts + active System Prompt
+        │
+        ▼
+Agent picks a tool (or plans a chain of tools)
+        │
+        ▼
+Each tool runs against UnoPim data (gated by your ACL permissions)
+        │
+        ▼
+Risky / low-confidence changes → Approval Queue
+Safe changes → applied immediately
+        │
+        ▼
+Response streams back into chat over SSE
+```
+
+The Platform and Model used for this reasoning loop are configured under **Magic AI >> Settings >> Agentic PIM**. The personality (tone, temperature, max tokens) comes from the active **System Prompt**.
 
 ## Opening the AI Agent Chat
 
@@ -11,7 +46,7 @@ To open the AI Agent Chat, click the **"Open Agenting PIM"** button located at t
 The AI Agent panel header includes an **AI Settings** link that navigates to `/admin/ai-agent/settings`, where you can configure AI providers, models, and tool-level permissions.
 
 The AI Agent panel includes three tabs:
-- **Capabilities** — Browse the 23 available PIM tools.
+- **Capabilities** — Browse the 30+ available PIM tools.
 - **Chat** — Conversational interface to interact with the AI using natural language.
 - **Sessions** — View and manage your past chat sessions.
 
@@ -21,9 +56,9 @@ Once opened, the chat panel slides in from the right side of the screen. You can
 
 ## Capabilities Tab
 
-The Capabilities tab lists all 23 tools the AI Agent can use. Each tool represents a specific PIM operation you can invoke through natural language. The full list is:
+The Capabilities tab lists every tool the agent can invoke. Each tool represents a specific PIM operation that you can trigger through natural language — you don't call tools by name, you describe what you want and the agent picks the right one.
 
-| # | Tool | Description |
+| # | Tool | What it does |
 |---|------|-------------|
 | 1 | **Create from Image** | Upload photos to auto-create products |
 | 2 | **Update Products** | Update attributes/status by SKU |
@@ -48,9 +83,10 @@ The Capabilities tab lists all 23 tools the AI Agent can use. Each tool represen
 | 21 | **Users** | View admin users & details |
 | 22 | **Roles** | View roles & permissions |
 | 23 | **Ask Anything** | Free-form PIM assistant |
+| 24 | **Manage Associations** | Add, remove, or list related/up-sell/cross-sell products via natural language *(v2.0.x)* |
 
 ::: tip
-Each tool respects your ACL permissions. If your admin role does not have access to a particular operation, the corresponding tool will not execute.
+Every tool respects your ACL permissions. If your admin role doesn't allow a particular operation, the corresponding tool silently does not execute — the agent can never bypass your role.
 :::
 
 ## Chat Interface Layout
@@ -63,11 +99,11 @@ The chat interface consists of the following areas:
 
 ## Types of Commands
 
-You can use the AI Agent Chat for a wide range of PIM operations. Below are the main categories of commands you can give.
+Below are the main categories of things you can ask the agent to do. Because the agent chooses tools from your intent, you don't need to remember tool names — just describe the outcome you want.
 
 ### Product Operations
 
-Create, update, search, and bulk edit products by describing what you need.
+Create, update, search, and bulk-edit products.
 
 **Example prompts:**
 - "Create a simple product with SKU TSHIRT-001 and name Blue T-Shirt"
@@ -77,7 +113,7 @@ Create, update, search, and bulk edit products by describing what you need.
 
 ### Category Management
 
-Manage your category tree through natural language commands.
+Manage the category tree.
 
 **Example prompts:**
 - "Show me all root categories"
@@ -85,7 +121,7 @@ Manage your category tree through natural language commands.
 
 ### Data Quality Reports
 
-Scan your catalog for missing or incomplete data and receive structured reports.
+Scan your catalog for missing or incomplete data and receive structured reports you can act on.
 
 **Example prompts:**
 - "Run a data quality scan on all products in the Clothing category"
@@ -94,7 +130,7 @@ Scan your catalog for missing or incomplete data and receive structured reports.
 
 ### Product Verification & Quality Scoring
 
-Verify individual products against quality criteria and receive a completeness score.
+Verify individual products against quality criteria.
 
 **Example prompts:**
 - "Check the completeness of product SKU JACKET-100"
@@ -102,7 +138,7 @@ Verify individual products against quality criteria and receive a completeness s
 
 ### Auto-Enrichment
 
-Let the AI Agent generate missing content for your products, such as descriptions and SEO fields.
+Have the agent fill in missing content — descriptions, SEO fields, etc. The agent uses whatever the product already has (name, category, attributes) to produce content that fits.
 
 **Example prompts:**
 - "Generate a short description for product SKU SNEAKER-200"
@@ -110,12 +146,12 @@ Let the AI Agent generate missing content for your products, such as description
 - "Enrich the SEO fields for product SKU WATCH-050"
 
 ::: tip
-Auto-enrichment works best when the product already has basic information like a name and category. The AI Agent uses existing data to generate relevant, high-quality content.
+Auto-enrichment works best when the product already has basic information like a name and category. The agent leans on that context to produce coherent, on-brand content.
 :::
 
 ### Task Planning
 
-For complex operations that involve multiple steps, the AI Agent can create and execute a structured plan.
+For multi-step work, the agent builds a plan, shows it to you, and executes it step-by-step.
 
 **Example prompts:**
 - "Plan and execute: update all products in the Summer collection to have a 20% discount and a new promotional description"
@@ -123,18 +159,28 @@ For complex operations that involve multiple steps, the AI Agent can create and 
 
 ### Bulk Transformations
 
-Apply transformations across multiple products simultaneously.
+Apply transforms (append, prepend, replace) across many SKUs in one shot.
 
 **Example prompts:**
 - "Bulk update all products with status disabled to enabled"
 - "Change the category of all products with SKU prefix LEGACY to the Archive category"
 
+### Manage Associations
+
+Introduced in **v2.0.x**, the **Manage Associations** tool lets you add, remove, or list related products, up-sells, and cross-sells through conversation — no need to open each product individually.
+
+**Example prompts:**
+- "Add SKU BELT-100 as a cross-sell on SKU JEANS-200"
+- "Remove all up-sell products from SKU PHONE-CASE-BLACK"
+- "List cross-sell products linked to SKU LAPTOP-PRO"
+- "Mirror the related products of SKU SHIRT-001 onto SKU SHIRT-002"
+
 ### Agent Memory System
 
-The AI Agent includes a memory system that allows it to remember facts and preferences you share during your session. It uses two internal tools for this:
+The agent has a small long-term memory that persists across sessions. It uses two internal tools:
 
-- **RememberFact** — Stores a fact or preference you provide so the agent can reference it later.
-- **RecallMemory** — Retrieves previously stored facts when relevant to your current request.
+- **RememberFact** — Stores a fact or preference you tell it to remember.
+- **RecallMemory** — Retrieves remembered facts when they're relevant to the current request.
 
 **Example prompts:**
 - "Remember that our standard product description format starts with the brand name"
@@ -142,7 +188,7 @@ The AI Agent includes a memory system that allows it to remember facts and prefe
 
 ### Content Feedback Loop
 
-When the AI Agent generates content (such as product descriptions), you can provide feedback to refine the output. The agent captures your preferences and adjusts its responses accordingly.
+When the agent generates content, you can nudge it with feedback and it will adjust future outputs in the same session — and, if strong enough, remember the preference for next time.
 
 **Example prompts:**
 - "That description is too long, make it shorter and more direct"
@@ -151,35 +197,29 @@ When the AI Agent generates content (such as product descriptions), you can prov
 
 ## Real-Time Streaming Responses
 
-As the AI Agent processes your request, the response streams into the chat in real time using **Server-Sent Events (SSE)**. You do not need to wait for the entire response to finish before reading the output. This provides a smooth, responsive experience even for complex operations that take several seconds to complete.
+Responses stream into the chat in real time using **Server-Sent Events (SSE)**. You see the agent's reasoning, tool calls, and results appear progressively instead of waiting for the whole response. For long operations (a 200-product bulk update, for instance) this lets you watch progress as it happens.
 
 ## Sessions Tab
 
-The Sessions tab displays a list of your past chat conversations, making it easy to revisit previous interactions with the AI Agent.
+The Sessions tab lists every past chat. Each entry shows the session title, number of messages, and last-active date.
 
  <ImagePopup src="/assets/2.0/images/ai-agent/ai-agent-sessions.png" alt="AI Agent Sessions" />
 
-Each session entry shows the following details:
-
-- **Session title** — A summary or label for the conversation.
-- **Message count** — The number of messages exchanged in that session.
-- **Date** — When the session was created or last active.
-
 ### Managing Sessions
 
-- **+ New Session** — Click this button to create a fresh conversation without any prior context. This is useful when you want to start a new task without the AI Agent referencing earlier messages.
-- **Delete session** — Click the trash icon next to a session to permanently remove it. This action cannot be undone.
-- **Resume a session** — Click on any session in the list to reopen it. The full conversation history and context are preserved, so the AI Agent picks up exactly where you left off.
+- **+ New Session** — Start a clean conversation with no prior context. Useful when you switch to a different task.
+- **Delete session** — Trash-icon button permanently removes a session. Irreversible.
+- **Resume a session** — Click any entry to reopen it. Full history and context restore, so the agent picks up exactly where you left off.
 
 ### Session Persistence
 
 Sessions are database-backed, which means:
 
-- **Page refreshes** do not clear your conversations. When you reload the page, your previous messages and responses are restored.
-- **Browser sessions** are preserved. You can close your browser and return later to continue where you left off.
-- **Context is maintained** within a session, so the AI Agent remembers what you discussed earlier in the same conversation.
-- Sessions persist across logins, so your conversation history is always available when you sign back in.
+- **Page refreshes** do not clear your conversation.
+- **Browser sessions** are preserved — close the tab, come back later, resume.
+- **Context is preserved within a session**, so the agent remembers what you discussed earlier in the same thread ("apply the same change to SKU B").
+- Sessions persist **across logins**, so your history is always available when you sign back in.
 
 ::: tip
-Start a new session when switching to a different task. This keeps conversations focused and prevents the AI Agent from mixing context between unrelated operations.
+Start a new session when switching to a different task. Focused sessions produce better tool choices because the agent isn't juggling unrelated context.
 :::

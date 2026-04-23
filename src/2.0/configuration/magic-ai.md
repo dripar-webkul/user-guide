@@ -1,19 +1,107 @@
 # Magic AI Configuration
 
-The Magic AI section in the admin sidebar provides four sub-pages for managing AI providers, behavior, prompts, and system-level personality settings. Navigate to **Magic AI** in the sidebar to access them.
+**Magic AI** is UnoPim's built-in layer for generating, enriching, and translating product and category content with Large Language Models (LLMs). Before you can use any AI feature — the Magic AI wand icons on product fields, the AI Agent Chat, auto-translation, or auto-enrichment — you must first configure Magic AI from the admin sidebar.
+
+<ImagePopup src="/assets/2.0/images/configuration/AiConfiguration.png" alt="Magic AI Configuration Overview" />
+
+## What does Magic AI do?
+
+Magic AI wires your UnoPim instance to one or more external AI providers (OpenAI, Anthropic, Gemini, Ollama, Groq, etc.) and exposes that power inside the PIM in four ways:
+
+| Capability | Where it appears in the UI | What it does |
+|---|---|---|
+| **Text generation** | Wand icon next to product/category text fields | Writes names, descriptions, SEO meta fields, category copy |
+| **Image generation** | Wand icon next to image/gallery attributes | Creates product imagery from a text description |
+| **Translation** | Automatic on product save, plus a bulk command | Translates locale-specific values across all configured locales |
+| **Agentic PIM (AI Agent Chat)** | "Open Agenting PIM" button, bottom-right | Conversational assistant that calls 30+ PIM tools on your behalf |
+
+All four share the same provider connections, prompt library, and system personality — so when you change Magic AI settings, every AI feature in UnoPim picks up the change.
+
+## How does Magic AI work?
+
+The pipeline is the same for every AI feature:
+
+1. **You trigger a request** — click a wand icon, save a product with auto-translate on, or send a chat message to the AI Agent.
+2. **UnoPim assembles the input** — it combines:
+   - The target entity's data (e.g., the product's name, attributes, category)
+   - The matching **Prompt** from Magic AI >> Prompts (with `@attribute` placeholders expanded)
+   - The active **System Prompt** personality (tone, temperature, max tokens)
+3. **UnoPim forwards the request** through the unified **LaravelAiAdapter** to the platform/model you selected in Magic AI >> Settings.
+4. **The provider responds** with generated text, an image, or a translation.
+5. **UnoPim applies the result** — either directly into the field, into the database (after optional approval), or streamed back into the chat.
+
+Everything between step 2 and step 5 is configured from the four sub-pages described below: **Platforms**, **Settings**, **Prompts**, and **System Prompts**.
+
+::: tip
+API keys never appear in plain text. All provider credentials are stored in the database with **encrypted credential storage**, and the key is masked in the UI after you save it.
+:::
+
+## The Magic AI Menu
+
+Expand **Magic AI** in the admin sidebar and you'll see four sub-menu items. Each one owns a specific slice of the AI configuration — together they give you complete control over *which provider runs, which models it uses, which instructions it follows, and which personality it speaks with*.
+
+| Menu item | URL | What you configure here | When to visit |
+|---|---|---|---|
+| **Platforms** | `/admin/magic-ai/platforms` | Provider connections — add an OpenAI / Anthropic / Gemini / Ollama / Groq account, paste its API key, and choose which of its models to enable. | First-time setup, rotating API keys, adding a new provider, enabling new models. |
+| **Settings** | `/admin/configuration/general/magic_ai` | Per-capability routing — pick which Platform + Model handles Text Generation, Image Generation, Translation, and Agentic PIM. Also the home for the daily token budget, approval mode, and auto-enrichment switches. | Any time you want to change which provider runs a given feature, tune safety limits, or turn features on/off. |
+| **Prompts** | `/admin/magic-ai/prompts` | Prompt templates — the instruction text Magic AI sends with every request, using `@attribute_code` placeholders that get replaced with real entity values. | Tailoring AI output to your brand voice, adding prompts for new attributes or categories, tweaking the default prompts. |
+| **System Prompts** | `/admin/magic-ai/system-prompts` | Global AI personality — tone, temperature, max tokens. Only one is active at a time, so your whole catalog keeps a consistent voice. | Changing the overall tone (formal vs. casual, concise vs. descriptive), tuning creativity, capping response length. |
+
+### How the four menu items connect
+
+```
+        ┌────────────────────────┐
+        │   1. Platforms         │   ← add providers + models
+        │   Provider + API key   │
+        │   + enabled models     │
+        └────────┬───────────────┘
+                 │ feeds the dropdowns in
+                 ▼
+        ┌────────────────────────┐
+        │   2. Settings          │   ← route each capability to a platform+model
+        │   Text / Image /       │
+        │   Translation /        │
+        │   Agentic PIM          │
+        └───┬──────┬──────┬──────┘
+            │      │      │
+            │      │      └── uses ──► 4. System Prompts  (global personality)
+            │      │                    — one active at a time
+            │      │
+            │      └── uses ──► 3. Prompts  (per-entity, per-purpose templates)
+            │                    — `@placeholders` filled from entity data
+            │
+            └── keeps everything within ACL, budget, and approval-mode limits
+```
+
+**Read top to bottom, you configure once, then use everywhere.** A wand click on a product description, an auto-translated field, or a chat message to the AI Agent all follow the same path through these four menu items.
+
+### Minimum setup order
+
+If you're configuring Magic AI for the first time, visit the menu items in this order:
+
+1. **Platforms** — add at least one provider, paste the API key, enable the models you plan to use, and **star one as the default**.
+2. **Settings** — enable the capabilities you need (Text / Image / Translation / Agentic PIM) and pick a Platform + Model for each. Set the Daily Token Budget and Change Approval Mode while you're here.
+3. **Prompts** — review the shipped prompts; adjust or add your own so the AI writes in the voice your catalog expects.
+4. **System Prompts** — confirm the active personality matches the tone you want across the whole catalog. Enable a different one if needed.
+
+Once those four pages are saved, every Magic AI feature in the admin — wand icons, auto-translation, auto-enrichment, and the AI Agent Chat — is ready to use.
 
 ## Platforms
 
-Navigate to **Magic AI >> Platforms** to manage your AI provider connections.
+Navigate to **Magic AI >> Platforms** to manage the AI provider connections that every Magic AI feature uses.
 
 <ImagePopup src="/assets/2.0/images/magic-ai/ai-platforms.png" alt="AI Platforms" />
 
-The Platforms page displays a datagrid with the following columns:
+### What a "Platform" is
+
+A *Platform* is one configured provider connection: a provider (OpenAI, Anthropic, Gemini, Ollama, Groq, …), an API key, and the list of models you've enabled from that provider. You can configure as many Platforms as you want — for example, one OpenAI platform for writing, one Gemini platform for translation, and one Ollama platform for on-prem workloads — and UnoPim will route each AI feature to the platform you assign.
+
+### Platforms datagrid
 
 | Column | Description |
 |--------|-------------|
 | **Label** | The name you assigned to the platform configuration |
-| **Provider** | The AI provider (OpenAI, Gemini, Ollama, Groq, etc.) |
+| **Provider** | The AI provider (OpenAI, Anthropic, Gemini, Ollama, Groq, etc.) |
 | **Models** | The models enabled for this platform |
 | **Default** | Whether this platform is the default (Yes/No) |
 | **Status** | Enabled or Disabled |
@@ -24,10 +112,10 @@ The Platforms page displays a datagrid with the following columns:
 
 Click the **Add Platform** button in the top-right corner. A modal opens with the following fields:
 
-1. **Provider** — Select a provider from the dropdown (e.g., OpenAI, Gemini, Ollama, Groq).
-2. **Label** — Enter a descriptive name for this platform configuration.
-3. **API Key** — Paste the API key from your provider account.
-4. **Models** — A multiselect field listing available models for the selected provider. Choose one or more models.
+1. **Provider** — Select a provider from the dropdown (e.g., OpenAI, Anthropic, Gemini, Ollama, Groq).
+2. **Label** — Enter a descriptive name for this platform configuration (e.g., *"OpenAI Production"*, *"Gemini Translation"*).
+3. **API Key** — Paste the API key from your provider account. It is encrypted on save.
+4. **Models** — A multiselect field listing available models for the selected provider. Choose one or more models; only the models you select are offered in the downstream Settings dropdowns.
 5. **Status** — Toggle to enable or disable the platform.
 
 <ImagePopup src="/assets/2.0/images/magic-ai/add-platform.png" alt="Add Platform" />
@@ -38,78 +126,103 @@ API credentials are stored with encrypted credential storage for security. Your 
 
 ### Platform Actions
 
-- **Star icon** — Sets the platform as the default. Only one platform can be the default at a time.
+- **Star icon** — Sets the platform as the **default**. The default is what the system uses when a feature is set to *"Use Default Platform"*. Only one platform can be the default at a time.
 - **Pencil icon** — Opens the edit modal to update the platform label, API key, models, or status.
 - **Trash icon** — Deletes the platform configuration. This action cannot be undone.
 
+### How platform selection flows into features
+
+```
+Platforms (provider + key + models)
+        │
+        ▼
+Settings (pick platform + model per feature)
+        │
+        ├─► Text Generation ──► Wand icons on text fields
+        ├─► Image Generation ──► Wand icons on image/gallery fields
+        ├─► Translation ──────► Auto-translate on save + bulk command
+        └─► Agentic PIM ──────► AI Agent Chat
+```
+
 ## Settings
 
-Navigate to **Magic AI >> Settings** in the sidebar. This opens the configuration page at `/admin/configuration/general/magic_ai` with four sections.
+Navigate to **Magic AI >> Settings** in the sidebar. This opens the configuration page at `/admin/configuration/general/magic_ai` with four sections — one per capability. For each capability you pick **which Platform** and **which Model** should handle it. Using different Platforms for different capabilities lets you optimize cost, speed, and quality independently.
 
 <ImagePopup src="/assets/2.0/images/magic-ai/magic-ai-settings.png" alt="Magic AI Settings" />
 
 ### 1. Agentic PIM
 
-Configure the AI Agent Chat, autonomous enrichment workflows, and quality monitoring.
+This section controls the **AI Agent Chat** (the conversational assistant) and the autonomous workflows it powers: auto-enrichment on product create, catalog quality monitoring, and the approval queue that sits in front of AI-proposed changes.
 
-| Field | Description |
-|-------|-------------|
-| **Enable AI Agent Chat** | Toggle to enable or disable the conversational AI agent interface |
-| **Max Agent Steps Per Turn** | Dropdown to set the maximum number of tool calls the agent can make per turn (default: 5) |
-| **Daily Token Budget** | Number field to set the maximum tokens the AI can consume per day (e.g., 500000) |
-| **Auto-Enrichment on Product Create** | Toggle to automatically enrich product data when a new product is created |
-| **Catalog Quality Monitor** | Toggle to enable ongoing AI-driven catalog quality monitoring |
-| **Confidence Threshold** | Dropdown to set how confident the AI must be before applying changes (default: 0.7 Balanced) |
-| **Change Approval Mode** | Dropdown to control how AI-proposed changes are applied (default: "Confirm & apply" — the AI proposes values, asks for confirmation, then executes) |
+| Field | What it does |
+|-------|---|
+| **Enable AI Agent Chat** | Master switch for the "Open Agenting PIM" chat button. When off, the floating button is hidden and no one can converse with the agent. |
+| **Max Agent Steps Per Turn** | How many tool calls the agent may chain together for a single user message (default: 5). Higher = more autonomy per turn; lower = tighter control and cheaper tokens. |
+| **Daily Token Budget** | Hard daily cap on tokens spent by the agent (e.g., 500 000). When the cap is hit, the agent replies with a budget-exhausted notice until the next day. |
+| **Auto-Enrichment on Product Create** | When enabled, every newly created product is queued for AI enrichment — missing descriptions, SEO fields, etc. are filled in automatically. |
+| **Catalog Quality Monitor** | Runs a scheduled AI sweep that reports on missing, thin, or inconsistent data across the catalog. |
+| **Confidence Threshold** | Minimum confidence score (default: 0.7 — "Balanced") the AI must reach before a proposed change is applied. Below the threshold, changes are held for review. |
+| **Change Approval Mode** | How AI-proposed changes land in your data: *Auto-apply*, *Confirm & apply* (default — the AI proposes values, asks you, then executes), or *Manual review* (everything goes to the Approval Queue). |
 
 ### 2. Text Generation
 
-Configure the default AI platform and model for generating product descriptions, category content, and other text-based AI features.
+This section controls the wand icons next to text fields (product name, descriptions, SEO meta fields, category copy). When a user clicks a wand icon, UnoPim sends the field's prompt to the Platform and Model configured here.
 
-| Field | Description |
-|-------|-------------|
-| **Enabled** | Toggle to enable or disable text generation |
-| **Default Platform** | Dropdown to select the platform. Choose "Use Default Platform" to use the starred platform, or select a specific one |
-| **Default Model** | Dropdown to select the model from the chosen platform |
+| Field | What it does |
+|-------|---|
+| **Enabled** | Toggle to enable or disable text generation across the admin. |
+| **Default Platform** | Choose which Platform serves text requests. Pick *"Use Default Platform"* to follow the starred platform, or override with a specific one. |
+| **Default Model** | The model used for text generation, drawn from the models enabled on the chosen Platform. |
 
 ### 3. Image Generation
 
-Configure the default AI platform and model for generating product images. Only platforms that support image generation (OpenAI, Gemini, xAI) are listed.
+This section controls the wand icons on Image and Gallery attributes. Only Platforms whose provider supports image generation (OpenAI / DALL-E, Gemini, xAI) are listed.
 
-| Field | Description |
-|-------|-------------|
-| **Enabled** | Toggle to enable or disable image generation |
-| **Default Platform** | Dropdown to select an image-capable platform |
-| **Default Model** | Dropdown to select the image generation model |
+| Field | What it does |
+|-------|---|
+| **Enabled** | Toggle to enable or disable image generation. |
+| **Default Platform** | The image-capable Platform to use. |
+| **Default Model** | The specific image model (e.g., `dall-e-3`). |
 
 ### 4. Translation
 
-Configure the AI platform and model for translating product content across locales. You can use a different platform for translations, allowing you to choose a faster or more cost-effective provider.
+Translation can run automatically whenever a product is saved, and can also be triggered in bulk via the translation command. Because translation tends to be high-volume, Magic AI lets you assign a **different Platform** — typically a cheaper or faster one — for this job alone.
 
-| Field | Description |
-|-------|-------------|
-| **Enabled** | Toggle to enable or disable AI-powered translation |
-| **Default Platform** | Dropdown to select the platform used for translation |
-| **Translation Model** | Dropdown to select the model used for translation |
-| **Replace Existing Value** | Toggle to control whether existing translations are overwritten when re-translating |
-| **Source Channel** | Dropdown to select the channel whose content is used as the translation source |
-| **Target Channel** | Dropdown to select the channel that receives translated content |
-| **Source Locale** | Dropdown to select the locale to translate from |
-| **Target Locales** | Multi-select dropdown to choose which locales to translate into |
+| Field | What it does |
+|-------|---|
+| **Enabled** | Toggle to enable or disable AI-powered translation. |
+| **Default Platform** | The Platform used for translation requests. |
+| **Translation Model** | The specific model used for translation — independent of the text-generation model. |
+| **Replace Existing Value** | On: re-translating overwrites existing locale values. Off: only empty locale fields are filled, preserving manual translations. |
+| **Source Channel** | The channel whose values serve as the source-of-truth. |
+| **Target Channel** | The channel that receives the translated values. |
+| **Source Locale** | The locale to translate from (e.g., `en_US`). |
+| **Target Locales** | Multi-select; choose every locale you want to auto-populate. |
 
 ::: tip
 You can assign a different (potentially cheaper or faster) AI provider specifically for translations, keeping your premium provider for content generation.
 :::
 
-Click **Save Configuration** at the bottom of the page to apply all changes.
+Click **Save Configuration** at the bottom of the page to apply all changes. Settings take effect immediately — no restart required.
 
 ## Prompts
 
-Navigate to **Magic AI >> Prompts** to manage custom prompts for AI content generation.
+Navigate to **Magic AI >> Prompts** to manage the **prompt templates** that tell the AI what to produce. A prompt is the instruction sent with every generation request; it's where you bake in your brand voice, required structure, or catalog-specific rules.
 
 <ImagePopup src="/assets/2.0/images/magic-ai/prompts.png" alt="Prompts" />
 
-The Prompts page displays a datagrid with the following columns:
+### How prompts work
+
+Each prompt is tied to an **Entity Type** (product or category) and a **Purpose** (Text Generation or Image Generation). At generation time, UnoPim:
+
+1. Picks the prompt that matches the entity and purpose.
+2. Replaces every `@attribute_code` placeholder with the actual value from the entity.
+3. Adds the active System Prompt personality on top.
+4. Sends the combined instructions to the Platform/Model configured for that capability.
+
+So a prompt of `Write a product description for @name in the @color variant` becomes, at generation time, something like `Write a product description for Air Max 90 in the Blue variant`.
+
+### Prompts datagrid
 
 | Column | Description |
 |--------|-------------|
@@ -123,9 +236,12 @@ The Prompts page displays a datagrid with the following columns:
 
 ### Creating a Prompt
 
-Click the **Create Prompt** button to add a new prompt. Define the title, prompt text, entity type, and purpose.
+Click the **Create Prompt** button to add a new prompt. Fill in:
 
-Prompts support dynamic placeholders that are replaced with actual product or category data at generation time. Common placeholders include `@name`, `@color`, and other attribute codes.
+- **Title** — how it appears in the list.
+- **Prompt** — the instruction text. Use `@attribute_code` placeholders for any value you want filled in from the entity.
+- **Entity Type** — product or category.
+- **Purpose** — Text Generation or Image Generation.
 
 ### Example Prompts
 
@@ -143,11 +259,18 @@ Use attribute codes as placeholders (prefixed with `@`) in your prompts. The AI 
 
 ## System Prompts
 
-Navigate to **Magic AI >> System Prompts** to configure the AI's personality and behavior for content generation.
+Navigate to **Magic AI >> System Prompts** to configure the AI's **personality** — the tone, style, and generation parameters that sit underneath every prompt.
 
 <ImagePopup src="/assets/2.0/images/magic-ai/system-prompts.png" alt="System Prompts" />
 
-The System Prompts page displays a datagrid with the following columns:
+### How a System Prompt differs from a Prompt
+
+- A **Prompt** says *what* to write for a specific field ("write a product description …").
+- A **System Prompt** says *how* to write — voice, tone, creativity, length. It's applied in front of every prompt, globally.
+
+Only **one System Prompt is active at any time**. Enabling a new one automatically disables the previous one, so the entire catalog keeps a consistent voice.
+
+### System Prompts datagrid
 
 | Column | Description |
 |--------|-------------|
@@ -179,8 +302,25 @@ UnoPim ships with 10 preset system prompts. Only one system prompt can be enable
 
 ### Creating a System Prompt
 
-Click the **Create System Prompt** button to define a new AI personality. Configure the title, tone description, max tokens, temperature, and status.
+Click the **Create System Prompt** button to define a new AI personality. Configure:
+
+- **Title** — shows in the datagrid.
+- **Tone description** — plain-language description of the voice (the model reads this).
+- **Max Tokens** — caps response length. Lower values = shorter output and lower cost.
+- **Temperature** — 0.0–1.0. Low values keep answers tight and repeatable; high values add variety and flair.
+- **Status** — enabling this one disables the currently-active prompt.
 
 ::: tip
 Only one system prompt can be active at a time. Enabling a new system prompt automatically disables the previously active one. Choose a system prompt that matches the tone you want across all AI-generated content.
 :::
+
+## Configuration checklist
+
+Before you start using Magic AI features, make sure you've done all four of these:
+
+1. **Magic AI >> Platforms** — Add at least one platform, paste an API key, enable the models you want, and **star one as default**.
+2. **Magic AI >> Settings** — Enable the capabilities you need (Text / Image / Translation / Agentic PIM) and pick a Platform + Model for each.
+3. **Magic AI >> Prompts** — Review the shipped prompts or create your own to match your brand voice.
+4. **Magic AI >> System Prompts** — Confirm the active personality matches the tone you want across the catalog.
+
+Once these four pages are configured, every Magic AI feature — wand icons, the AI Agent Chat, auto-translation, and auto-enrichment — will work without further setup.
