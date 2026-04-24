@@ -35,20 +35,20 @@ Safe changes → applied immediately
 Response streams back into chat over SSE
 ```
 
-The Platform and Model used for this reasoning loop are configured under **Magic AI >> Settings >> Agentic PIM**. The personality (tone, temperature, max tokens) comes from the active **System Prompt**.
+The Platform and Model used for this reasoning loop are configured under **Magic AI → Settings → Agentic PIM**. The personality (tone, temperature, max tokens) comes from the active **System Prompt**.
 
 ## Opening the AI Agent Chat
 
-To open the AI Agent Chat, click the **"Open Agenting PIM"** button located at the bottom-right corner of any page in the admin panel.
+Click the floating **star icon** at the bottom-right of any admin page. The chat panel slides in from the right edge with the header **"Agenting PIM — AI-powered operations"**.
 
  <ImagePopup src="/assets/2.0/images/ai-agent/ai-agent-chat.png" alt="AI Agent Chat" />
 
-The AI Agent panel header includes an **AI Settings** link that navigates to `/admin/ai-agent/settings`, where you can configure AI providers, models, and tool-level permissions.
+A settings gear ⚙ in the panel header jumps to `/admin/ai-agent/settings` (which resolves to **Magic AI → Settings**), where you can configure platforms, models, and budgets.
 
-The AI Agent panel includes three tabs:
-- **Capabilities** — Browse the 30+ available PIM tools.
-- **Chat** — Conversational interface to interact with the AI using natural language.
-- **Sessions** — View and manage your past chat sessions.
+The panel has three tabs:
+- **Capabilities** — Browse the 30+ tools the agent can call.
+- **Chat** — Conversational interface. When empty, it shows *"How can I help with your catalog?"* under a star icon and the header **General Chat**.
+- **Sessions** — Your past conversations. A numeric badge on the tab shows how many sessions are unread.
 
  <ImagePopup src="/assets/2.0/images/ai-agent/ai-agent-chat-tab.png" alt="AI Agent Chat Tab" />
 
@@ -94,8 +94,30 @@ Every tool respects your ACL permissions. If your admin role doesn't allow a par
 The chat interface consists of the following areas:
 
 - **Message Area** — Displays the conversation history between you and the AI Agent, including responses, tool outputs, and status updates.
-- **Input Field** — A text input at the bottom where you type your commands or questions.
-- **Send Button** — Submits your message to the AI Agent for processing.
+- **Input Field** — A text input at the bottom where you type your commands or questions. Keyboard hint: **Enter** to send, **Shift+Enter** for a new line.
+- **Attachment (paperclip) icon** — Attach a file (image, CSV) to the message.
+- **Platform dropdown** — Pick which configured AI Platform handles this specific message (see below).
+- **Model dropdown** — Pick which model on that platform handles this specific message.
+- **Send button** — Submits your message to the AI Agent for processing.
+
+### Choosing a Platform or Model for a single message
+
+The chat input bar lets you override the default platform and model **per message**, without changing the global defaults under **Magic AI → Settings**.
+
+| Dropdown | What it shows | Source |
+|---|---|---|
+| **Platform** | Every enabled platform (e.g., *OpenAI (Openai)*). | **Magic AI → Platforms** |
+| **Model** | Models enabled on the selected platform (e.g., *gpt-5.4*). | Models ticked on that platform |
+
+The override lasts for one message; the next message reverts to whatever the dropdowns are currently showing.
+
+**When this is useful:**
+
+- **Cost control** — route a simple lookup to a cheap, fast model while keeping a premium model for enrichment.
+- **Quality experiments** — send the same prompt twice with different models and compare.
+- **Provider isolation** — route sensitive prompts to a self-hosted Ollama platform without touching the global setting.
+
+If you want a change to stick for every user and every feature, edit **Magic AI → Settings → Agentic PIM** instead.
 
 ## Types of Commands
 

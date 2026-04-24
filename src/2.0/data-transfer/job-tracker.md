@@ -29,18 +29,54 @@ Because every step writes to the same record, you can navigate away from the tra
 
 ## Job statuses
 
+Each row in the tracker shows the job's current status as a coloured chip:
+
 | Status | Meaning |
 |---|---|
 | **Queued** | Job is in the queue, waiting for a worker. |
+| **Validating** / **Validated** | File is being validated, or validation finished successfully and the import is ready to run. |
 | **Processing** | A worker has picked it up and the pipeline is advancing. |
 | **Paused** | You stopped it mid-run; state is preserved and it can be resumed. |
-| **Complete** | All steps finished successfully. |
+| **Completed** | All steps finished successfully. |
 | **Failed** | A step errored; see the log for details. |
 | **Cancelled** | You stopped it permanently; cannot be resumed. |
 
-## Step pipelines
+## Tracker listing columns
 
-The tracker visualises each job as a horizontal pipeline. The exact steps depend on the job type:
+The tracker is a datagrid; one row per job:
+
+| Column | Description |
+|---|---|
+| **ID** | Auto-incremented job ID. Matches the `#n` suffix on notifications (e.g., *Import #15*). |
+| **Job** | The profile code (e.g., `product_export`, `category_import`). |
+| **Type** | What's being transferred — `Products` or `Categories`. |
+| **Job Type** | How the job was triggered — `import`, `export`, or `system` (scheduled, bulk, or AI-Agent-initiated). |
+| **Status** | Current state (see table above). |
+| **User** | The admin who started the job. |
+| **Started at** / **Completed at** | Timestamps. |
+| **Actions** | **Eye icon** — opens the job detail page where the step pipeline, live progress, and Pause / Resume / Cancel controls are shown. |
+
+<ImagePopup src="/assets/2.0/images/data-transfer/tracker.png" alt="Job Tracker listing" />
+
+## System jobs and AI-Agent-triggered jobs
+
+Not every entry in the tracker comes from a manual import / export. Jobs fall into three categories, shown in the **Job Type** column:
+
+| Job Type | Where it comes from |
+|---|---|
+| `import` | A manual run from **Data Transfer → Imports**. |
+| `export` | A manual run from **Data Transfer → Exports**, or a **Quick Export** from the Products listing. |
+| `system` | A background job — bulk product updates, scheduled catalog quality scans, auto-enrichment runs, or exports the AI Agent produced on your behalf. AI-Agent-initiated jobs show up with names like `ai-agent-export-…`. |
+
+All three share the same lifecycle, status chips, logs, and Pause / Resume / Cancel controls — the only difference is how they were started.
+
+::: tip
+If you see a `system` job you don't recognise, click the eye icon to open the detail page. The detail view shows the user that triggered the chain and, for AI-Agent jobs, the chat message that produced it.
+:::
+
+## Step pipelines (on the job detail page)
+
+Click the **eye icon** on a row in the tracker to open the job detail page. The detail page visualises the job as a horizontal step pipeline. The exact steps depend on the job type:
 
 ### Import pipeline
 

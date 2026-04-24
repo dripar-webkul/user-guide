@@ -21,7 +21,7 @@ In short: **Magic AI writes content. The AI Agent takes actions.**
 Every chat message flows through this loop:
 
 1. **You send a message** in the AI Agent Chat panel.
-2. **The agent interprets your intent** using the Platform/Model configured under **Magic AI >> Settings >> Agentic PIM**, plus the active System Prompt personality and any facts it has remembered about you.
+2. **The agent interprets your intent** using the Platform/Model configured under **Magic AI → Settings → Agentic PIM**, plus the active System Prompt personality and any facts it has remembered about you.
 3. **The agent chooses tools to call** from a library of 30+ PIM tools (see the [AI Agent Chat](./ai-agent-chat.md) page for the full list). For complex requests it chains several tools together in a plan.
 4. **Each tool runs against real UnoPim data** — but **only within your ACL permissions**. A tool you don't have permission for silently refuses to execute.
 5. **Destructive or low-confidence changes go to the Approval Queue** (if your Change Approval Mode is set that way) so you can review them before they're applied.
@@ -46,7 +46,7 @@ Bulk-update attributes, reassign categories, toggle status, or apply transforms 
 ### Task Planning
 For multi-step work ("clean up the Summer collection: update prices, add a promotional description, and assign the Sale category"), the agent builds a plan, shows you the steps, and executes them in sequence.
 
-### Association Management *(New in v2.0.1)*
+### Association Management *(New in v2.0.x)*
 Add, remove, list, or mirror related products, up-sells, and cross-sells through conversation — no need to open each product edit page.
 
 ### Catalog Insights
@@ -77,7 +77,7 @@ To keep the system stable and costs predictable, the AI Agent enforces **30 requ
 
 ## Safety Controls
 
-Three controls keep the agent's autonomy in check — all configured from **Magic AI >> Settings >> Agentic PIM**:
+Three controls keep the agent's autonomy in check — all configured from **Magic AI → Settings → Agentic PIM**:
 
 - **Daily Token Budget** — caps how much the agent can spend in a 24-hour window.
 - **Max Agent Steps Per Turn** — caps how many tools it can chain for one user message.

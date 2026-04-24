@@ -6,7 +6,7 @@ Category fields generally refer to specific attributes or types of information u
 
 ### Steps to Create a Category Fields in UnoPim
 
-1) Click on **Catalog >> Category Field >> Click Category Field** button  as shown in the below image.
+1) Click on **Catalog → Category Field → Click Category Field** button  as shown in the below image.
 
    <ImagePopup src="/assets/2.0/images/category/createField.png" alt="Category Field" />
 
@@ -60,7 +60,7 @@ At Last click on **Save Category Field** button and the new category field is cr
 
    <ImagePopup src="/assets/2.0/images/category/fielddataGrid.png" alt="Datagrid" />
 
-Now go to **Catalog >> Categories >> Create Category** and you are able to see the **New Category Field** while creating or updating category.
+Now go to **Catalog → Categories → Create Category** and you are able to see the **New Category Field** while creating or updating category.
 
    <ImagePopup src="/assets/2.0/images/category/output.png" alt="Output" />
 

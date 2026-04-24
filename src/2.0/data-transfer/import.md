@@ -6,7 +6,7 @@ The feature works differently for each system and has a vast variety of use case
 
 ### Steps to add Bulk Import in UnoPim
 
-**Step 1:** Go to the Admin panel of UnoPim and click on **Data Transfer >> Imports** in the sidebar then click the **Create Import** button.
+**Step 1:** Go to the Admin panel of UnoPim and click on **Data Transfer → Imports** in the sidebar then click the **Create Import** button.
 
  <ImagePopup src="/assets/2.0/images/data-transfer/import-listing.png" alt="Import Listing" />
 
@@ -16,31 +16,30 @@ The feature works differently for each system and has a vast variety of use case
 
 2) **Type -** Kindly select the type i.e. (Products, Categories) which you want to import.
 
-3) **File –** Choose the file in your desired format **(CSV, XLS, XLSX)** and kindly make sure you have all the required fields in the file.
+3) **File / Images –** a combined panel covering both the data file and any product images the file references:
+   - **File \*** – drag a **CSV / XLSX / XLS** file onto the upload area (*"Click to upload or drag and drop"*) or click to browse. Allowed file types are shown under the label.
+   - **Download {Type} Sample CSV** – link that downloads the sample file for the Type you selected (e.g., *"Download Categories Sample CSV"* when Type is Categories). Use it to confirm the expected column layout before you upload your own file.
+   - **Images → Path** – the two-part path UnoPim uses to locate product images:
+     - The prefix is locked to `storage/app/public/`.
+     - The editable suffix defaults to something like `import-images/my-products`.
+     - Click **Upload Images to set Path** to upload an images folder; UnoPim saves it under the prefix and fills the suffix in for you automatically.
+   - Helper text under the field: *"Place images in `storage/app/public/`. For images at `storage/app/public/import-images`, include `import-images/` in the path and use only the file name in the import file."*
 
-4) **Download Sample –** You can also download the sample files of types (Products, Categories). Kindly make sure the file you are uploading is similar to this sample file.
+4) **Action –** Select Create/Update or Delete from the Settings panel to control whether matching rows are upserted or removed.
 
-5) **Image Directory Path –** For product images files should be placed into **/project-root/storage/app/import/product-images** folder.
+5) **Validation Strategy –** Choose **Skip Errors** or **Stop on Errors** to decide how the importer reacts when a row fails validation.
 
-6) **Action –** Kindly select from the settings configuration that you want to Create/Update or Delete the records.
+6) **Allowed Errors –** Maximum number of row-level errors the import tolerates before halting. Default: **`10`**.
 
-7) **Validation Strategy –** This unique feature allows you to Skip the Errors or to Stop on Errors while Importing the data.
-
-8) **Allowed Errors –** This feature allows you how much quantity of errors will get neglected while importing the data.
-
-9) **Field Separator –** This feature allows you to set the fields. For Example if you use **","** as a field separator then the data inside the file gets separated with this.
+7) **Field Separator –** The character that separates columns in the CSV file. Default: **`;`** (semicolon). Only used for CSV files.
 
 Now, click on **Save Import** button.  
 
  <ImagePopup src="/assets/2.0/images/data-transfer/create-import-form.png" alt="Create Import Form" />
 
- <ImagePopup src="/assets/2.0/images/data-transfer/createImport.png" alt="Create Import" />
-
- <ImagePopup src="/assets/2.0/images/data-transfer/saveImport.png" alt="Save Import" />
-
 The create import form has a two-panel layout:
-- **General panel (left)** — Code, Type (Products/Categories), File upload area, Download Sample CSV link, Image Path
-- **Settings panel (right)** — Action (Create/Update), Validation Strategy (Stop on Errors/Skip Errors), Allowed Errors, Field Separator
+- **General panel (left)** — Code, Type (Products/Categories), plus a combined **File / Images** block with the file upload area, the *Download {Type} Sample CSV* link, and the **Images → Path** field with its *Upload Images to set Path* button.
+- **Settings panel (right)** — Action (Create/Update), Validation Strategy (Stop on Errors / Skip Errors), Allowed Errors (default `10`), Field Separator (default `;`).
 
 ### Drag-and-Drop File Upload
 
@@ -50,30 +49,19 @@ UnoPim v2.0 supports **Drag-and-Drop File Upload** for import files. The upload 
 
 Import jobs support **dynamic filters** that allow you to configure advanced filtering conditions for your import data. This helps you control exactly which records get imported based on specific criteria.
 
-**Step 3:** From the import listing, click the **Import** action icon (play icon) on the row of the import you want to run. This opens the import execution page.
+**Step 3:** From the import listing, click the **Import** action icon (play icon) on the row of the import you want to run. This opens the execution page, which shows a summary of the import configuration:
 
- <ImagePopup src="/assets/2.0/images/data-transfer/import-running.png" alt="Import Execution Page" />
-
-The execution page shows a summary of the import configuration:
 - **Import Profile** — The import code
 - **File Path** — The uploaded file location
 - **Action Mode** — Create/Update or Delete
 
-Click the **Import Now** button to start processing.
-
- <ImagePopup src="/assets/2.0/images/data-transfer/importNow.png" alt="Import Now button" />
-
- <ImagePopup src="/assets/2.0/images/data-transfer/importOutput.png" alt="Import Output" />
-
- <ImagePopup src="/assets/2.0/images/data-transfer/edit-import.png" alt="Edit Import" />
-
- <ImagePopup src="/assets/2.0/images/data-transfer/action.png" alt="Import action" />
+Click the **Import Now** button to start processing. UnoPim queues the job and redirects you to the **Job Tracker** detail view for that job.
 
 ## Import/Export Tracker
 
-**Step 4:** After clicking Import Now, you are redirected to the **Job Tracker** page which shows real-time progress of your import.
+**Step 4:** The Job Tracker detail page shows the step pipeline in real time. If validation catches errors, the page surfaces them with row numbers and the exact field that failed, plus a **Download Full Report** button:
 
- <ImagePopup src="/assets/2.0/images/data-transfer/import-progress.png" alt="Import Progress" />
+ <ImagePopup src="/assets/2.0/images/data-transfer/import-progress.png" alt="Import detail page — validation errors" />
 
 The tracker shows a **step pipeline** with visual progress indicators:
 
@@ -99,10 +87,6 @@ During an active import, **job control buttons** appear in the tracker:
 - **Pause** — Temporarily halt an in-progress import. The job state is preserved and can be resumed later.
 - **Resume** — Continue a paused import from where it left off.
 - **Cancel** — Stop an import entirely. Cancelled jobs cannot be resumed.
-
-::: tip
-The pause and resume feature is especially useful for large imports. You can pause a job during peak hours and resume it during off-peak times.
-:::
 
 ::: tip
 The pause and resume feature is especially useful for large imports. You can pause a job during peak hours and resume it during off-peak times.

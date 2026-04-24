@@ -25,7 +25,7 @@ Controls the conversational AI Agent and the background workflows it drives (aut
 | Field | What it does |
 |-------|---|
 | **Enable AI Agent Chat** | Master switch for the "Open Agenting PIM" button. When off, the chat button is hidden and no one can converse with the agent. |
-| **Max Agent Steps Per Turn** | How many tool calls the agent may chain for a single user message (default 5). Higher = more autonomy; lower = tighter control + cheaper tokens. |
+| **Max Agent Steps Per Turn** | How many tool calls the agent may chain for a single user message. The dropdown offers labeled presets rather than raw numbers — e.g., **`3 (Fast)`** for tight, cheap responses, and higher presets for more autonomy. Higher = more autonomy per turn; lower = tighter control and cheaper tokens. |
 | **Daily Token Budget** | Global daily cap on AI Agent token spend (e.g., `500000`). When the cap is hit, the agent replies with a budget-exhausted notice until midnight. |
 | **Auto-Enrichment on Product Create** | When enabled, every new product is queued for AI enrichment — missing descriptions, SEO fields, etc. are filled in automatically. |
 | **Catalog Quality Monitor** | Runs a scheduled AI sweep that reports on missing, thin, or inconsistent catalog data. |
@@ -43,7 +43,7 @@ Controls the wand icons next to product and category text fields (Name, Short De
 | Field | What it does |
 |-------|---|
 | **Enabled** | Toggle text generation on or off across the admin. |
-| **Default Platform** | Which Platform serves text requests. Pick *"Use Default Platform"* to follow the starred one, or override with a specific platform. |
+| **Default Platform** | Which Platform serves text requests. Pick **`-- Use Default Platform --`** to follow the starred default, or override with a specific platform. Platforms marked with `*` in the dropdown are the current default. |
 | **Default Model** | The model used for text, pulled from the models enabled on the chosen Platform. |
 
 ## 3. Image Generation
@@ -53,7 +53,7 @@ Controls the wand icons on Image and Gallery attributes. Only Platforms whose pr
 | Field | What it does |
 |-------|---|
 | **Enabled** | Toggle image generation on or off. |
-| **Default Platform** | An image-capable Platform. |
+| **Default Platform** | An image-capable Platform. Pick **`-- Use Default Platform --`** to follow the starred default; `*` in the dropdown marks the current default. |
 | **Default Model** | The specific image model (e.g., `dall-e-3`). |
 
 ## 4. Translation
@@ -63,7 +63,7 @@ Controls auto-translation on product save and the AI-powered bulk translation co
 | Field | What it does |
 |-------|---|
 | **Enabled** | Turn AI-powered translation on or off. |
-| **Default Platform** | The Platform used for translation requests. |
+| **Default Platform** | The Platform used for translation requests. Pick **`-- Use Default Platform --`** to follow the starred default; `*` in the dropdown marks the current default. |
 | **Translation Model** | The specific model used for translation — independent of the text-generation model. |
 | **Replace Existing Value** | On: re-translating overwrites existing locale values. Off: only empty locale fields are filled, preserving manual translations. |
 | **Source Channel** | The channel whose values serve as the source-of-truth. |

@@ -4,7 +4,7 @@ It refers to the specific functions or responsibilities assigned to users within
 
 ### Create Roles
 
-**Step 1:** It can be set on the admin panel by going to **Setting >> Roles**. Here you can create a new role by clicking on the button **Create Role** as shown in the below image.
+**Step 1:** It can be set on the admin panel by going to **Settings → Roles**. Here you can create a new role by clicking on the button **Create Role** as shown in the below image.
 
  <ImagePopup src="/assets/2.0/images/settings/createRole.png" alt="Role" />
 
@@ -26,7 +26,7 @@ It refers to the specific functions or responsibilities assigned to users within
 
  <ImagePopup src="/assets/2.0/images/settings/roleGrid.png" alt="Role Grid" />
 
-**Step 4:** Now you can assign this new role while creating a user go to **Settings >> Users** as shown in the image below.
+**Step 4:** Now you can assign this new role while creating a user go to **Settings → Users** as shown in the image below.
 
  <ImagePopup src="/assets/2.0/images/settings/roleOutput.png" alt="Role Output" />
 

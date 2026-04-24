@@ -32,22 +32,23 @@ General system-level alerts, such as scheduled maintenance reminders or importan
 
 ### Notification Panel Features
 
-The notification panel provides several options to help you manage your alerts efficiently:
+Click the **bell icon** in the top-right of the header to open the panel. A **green dot** on the bell indicates unread notifications.
 
-**1) View All Notifications**
+<ImagePopup src="/assets/2.0/images/notifications/notification-panel.png" alt="Notifications panel" />
 
-Click the **Bell Icon** to see a list of all your recent notifications. Each notification displays a brief summary, the timestamp, and the current read/unread status.
+The panel lists recent notifications. Each entry shows:
 
-**2) Mark as Read/Unread**
+- **Title** — job type + sequential number, e.g., `Import #15`, `Export #1`. The number matches the **ID** column in the [Job Tracker](../data-transfer/job-tracker.md), so you can click through and find the exact run.
+- **Body** — the profile code + terminal state, e.g., *"Import 'Test' completed"* — useful for telling apart multiple runs of the same profile.
+- **Relative timestamp** — e.g., *"4 days ago"*.
 
-You can mark individual notifications as read or unread. Unread notifications are highlighted so you can quickly identify new alerts. Click on a notification to mark it as read automatically.
+Two actions sit at the bottom of the panel:
 
-**3) Clear Notifications**
-
-To keep your notification panel clean, you can clear notifications that are no longer needed. This removes them from the panel so you can focus on the most recent and relevant alerts.
+- **View All** — opens the full notifications page, where you can browse, filter, and manage individual entries.
+- **Mark as Read** — a single bulk action that clears the unread state for every notification visible in the panel.
 
 ::: tip
-Regularly clearing old notifications helps you stay organized and quickly spot new important alerts.
+Per-notification *Mark as Read / Unread* and *Clear Notifications* controls now live on the full notifications page (via **View All**). The panel itself keeps only the bulk *Mark as Read* and *View All* actions so it stays scannable.
 :::
 
 ### Email Notifications
@@ -60,10 +61,10 @@ Email notifications are sent automatically for key events such as import/export 
 
 **Configuration**
 
-To configure email notifications, ensure your mail settings are properly set up under **Configuration >> Email**. UnoPim uses the configured mail driver (SMTP, Mailgun, etc.) to deliver notification emails.
+Email delivery is configured at the infrastructure level via your UnoPim `.env` file — set `MAIL_MAILER`, `MAIL_HOST`, `MAIL_USERNAME`, `MAIL_PASSWORD`, and `MAIL_FROM_ADDRESS` to match your mail provider (SMTP, Mailgun, Postmark, etc.). UnoPim uses standard Laravel mail drivers and picks up the settings automatically on application boot.
 
 ::: tip
-Make sure your mail configuration is tested and working before relying on email notifications. You can verify this by sending a test email from the configuration panel.
+Test your mail configuration end-to-end before relying on notification emails. Trigger a low-stakes event (e.g., a small import) and confirm the email arrives; if it doesn't, check your Laravel log (`storage/logs/laravel.log`) for mailer errors.
 :::
 
 By using both in-app and email notifications together, you can ensure complete visibility into all important events happening within your UnoPim instance.

@@ -14,7 +14,7 @@ The Approval Queue applies only to **writes originating from the AI Agent**. Cha
 ## How does the Approval Queue work?
 
 1. **The AI Agent proposes a change** — generated from a chat instruction, an auto-enrichment run, or the Catalog Quality Monitor.
-2. **UnoPim checks the Change Approval Mode** (configured in **Magic AI >> Settings >> Agentic PIM**):
+2. **UnoPim checks the Change Approval Mode** (configured in **Magic AI → Settings → Agentic PIM**):
    - **Auto-apply** — safe / high-confidence changes go straight to the database.
    - **Confirm & apply** (default) — the agent proposes values, asks for confirmation in the chat, then executes.
    - **Manual review** — every change is routed to the Approval Queue, no exceptions.
@@ -25,7 +25,7 @@ The Approval Queue applies only to **writes originating from the AI Agent**. Cha
 
 ## Configurable Modes
 
-The Approval Queue supports two broad modes of operation, selected under **Magic AI >> Settings >> Agentic PIM**:
+The Approval Queue supports two broad modes of operation, selected under **Magic AI → Settings → Agentic PIM**:
 
 ### Auto-Approve Mode
 
@@ -81,9 +81,9 @@ The Approval Queue is one of four safeguards on the AI Agent. Together they form
 
 | Safeguard | Configured at | What it protects |
 |---|---|---|
-| **ACL permissions** | Settings >> Roles | Stops the agent from doing things your role cannot do. |
-| **Daily Token Budget** | Magic AI >> Settings >> Agentic PIM | Caps total AI spend per day. |
-| **Max Agent Steps Per Turn** | Magic AI >> Settings >> Agentic PIM | Caps how many tools a single message can chain. |
-| **Change Approval Mode + Confidence Threshold + Approval Queue** | Magic AI >> Settings >> Agentic PIM | Holds risky or low-confidence writes for review. |
+| **ACL permissions** | Settings → Roles | Stops the agent from doing things your role cannot do. |
+| **Daily Token Budget** | Magic AI → Settings → Agentic PIM | Caps total AI spend per day. |
+| **Max Agent Steps Per Turn** | Magic AI → Settings → Agentic PIM | Caps how many tools a single message can chain. |
+| **Change Approval Mode + Confidence Threshold + Approval Queue** | Magic AI → Settings → Agentic PIM | Holds risky or low-confidence writes for review. |
 
 The queue is specifically about **write-time oversight** — once a change has been approved and written, it behaves like any other catalog edit and follows the normal audit/history trail.

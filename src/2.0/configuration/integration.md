@@ -4,7 +4,7 @@ Integration in UnoPim is crucial for ensuring that product data is consistent, a
 
 ### Steps of Integration in UnoPim
 
-**Step 1-** Go to the Admin panel of UnoPim, click on **Configuration >> Integrations** in the sidebar, and click the **Create** button.
+**Step 1-** Go to the Admin panel of UnoPim, click on **Configuration → Integrations** in the sidebar, and click the **Create** button.
 
    <ImagePopup src="/assets/2.0/images/configuration/configuration.png" alt="Configuration" />
 

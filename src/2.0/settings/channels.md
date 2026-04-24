@@ -4,7 +4,7 @@ Channels help ensure that product information is accurately and consistently pre
 
 ### Creating Channels in UnoPim.
 
-**Step 1:** The UnoPim's channel functionality allows the creating of multiple channels in UnoPim. Here you need to proceed towards **Settings >> Channels >> Create Channel** as shown in the below image.
+**Step 1:** The UnoPim's channel functionality allows the creating of multiple channels in UnoPim. Here you need to proceed towards **Settings → Channels → Create Channel** as shown in the below image.
 
  <ImagePopup src="/assets/2.0/images/settings/createChannel.png" alt="Channel" />
 
@@ -26,7 +26,7 @@ At last, **Save the Channel**.
 
  <ImagePopup src="/assets/2.0/images/settings/channelGrid.png" alt="Channel Grid" /> 
 
-Now the new channel is visible on the product edit page kindly click on **Catalog >> Products >> Edit Product** as shown below.
+Now the new channel is visible on the product edit page kindly click on **Catalog → Products → Edit Product** as shown below.
 
 After changing a channel, product values are now different for value per channel attributes
 

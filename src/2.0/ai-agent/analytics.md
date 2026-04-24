@@ -25,7 +25,7 @@ The dashboard aggregates these records to produce the counters, charts, and user
 
 ### Where the daily budget comes from
 
-The **Daily Token Budget** is a single global number set under **Magic AI >> Settings >> Agentic PIM >> Daily Token Budget** (e.g., `500000`). Every tool call the agent makes decrements the running total for the day. When the total hits zero, the agent replies with a budget-exhausted notice to any user that tries to send a message. At midnight (server time), the counter resets.
+The **Daily Token Budget** is a single global number set under **Magic AI → Settings → Agentic PIM → Daily Token Budget** (e.g., `500000`). Every tool call the agent makes decrements the running total for the day. When the total hits zero, the agent replies with a budget-exhausted notice to any user that tries to send a message. At midnight (server time), the counter resets.
 
 The dashboard shows **three derived figures** on top of that raw counter: today's usage, remaining budget, and the utilization percentage.
 
@@ -72,7 +72,7 @@ This information is useful for budgeting, for spotting runaway usage, and for de
 
 To set or adjust the daily token budget:
 
-1. Navigate to **Magic AI >> Settings** in the admin panel.
+1. Navigate to **Magic AI → Settings** in the admin panel.
 2. Open the **Agentic PIM** section.
 3. Set the **Daily Token Budget** field (e.g., `500000`).
 4. Click **Save Configuration** to apply.
@@ -99,7 +99,7 @@ Use this historical data to inform budget allocation, spot power users, and iden
 
 ## How analytics ties to the other agent controls
 
-The analytics dashboard is the observability layer that sits on top of the controls you configured under **Magic AI >> Settings >> Agentic PIM**. Together they form a feedback loop:
+The analytics dashboard is the observability layer that sits on top of the controls you configured under **Magic AI → Settings → Agentic PIM**. Together they form a feedback loop:
 
 ```
 Configure budget + approval mode    ←──┐

@@ -2,7 +2,7 @@
 
 Webhooks in [UnoPim](https://unopim.com/) let you push real-time product update notifications to an external URL whenever product data changes. Instead of polling the API, your connected systems (e-commerce storefronts, ERPs, marketplaces) receive an HTTP request the moment a product is created, updated, or deleted.
 
-The Webhook Settings page is located at **Configuration >> Webhooks** in the admin sidebar.
+The Webhook Settings page is located at **Configuration → Webhooks** in the admin sidebar.
 
 ## General Tab
 
@@ -12,7 +12,7 @@ The **General** tab is where you enable the webhook and configure the destinatio
 
 ### Enable the Webhook and Set the URL
 
-**Step 1:** Navigate to **Configuration >> Webhooks** in the admin sidebar. The **General** tab is selected by default.
+**Step 1:** Navigate to **Configuration → Webhooks** in the admin sidebar. The **General** tab is selected by default.
 
 **Step 2:** In the **General** panel on the left, toggle **Active Webhook** to enable webhook delivery.
 
@@ -66,7 +66,7 @@ This is useful for tracking when the webhook URL was updated, when the webhook w
 
 ## Quick Setup Summary
 
-1. Go to **Configuration >> Webhooks**.
+1. Go to **Configuration → Webhooks**.
 2. On the **General** tab, toggle **Active Webhook** on.
 3. Enter your **Webhook URL** in the Settings panel.
 4. Click **Save**.

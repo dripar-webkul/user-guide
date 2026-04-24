@@ -27,13 +27,15 @@ At runtime, the parent acts as the public-facing record and the variants hold th
 
 ### Step 1 — Start creation
 
-1. Click **Catalog >> Products >> Create Product**.
-2. Select product type **Configurable**.
-3. Pick the **Family**.
-4. Enter the parent **SKU**.
-5. Click **Save**.
+1. Click **Catalog → Products**.
+2. Click **Create Product** in the top-right corner. The **"Create New Product"** dialog opens.
+3. Fill in:
+   - **Type** — `Configurable`.
+   - **Family** — the attribute family that controls which fields appear on the parent.
+   - **SKU** — the parent SKU (must be unique).
+4. Click **Save Product**.
 
-<ImagePopup src="/assets/2.0/images/configurable-product/configurable.png" alt="Create Configurable Product" />
+<ImagePopup src="/assets/2.0/images/configurable-product/configurable.png" alt="Create Configurable Product modal" />
 
 UnoPim redirects you to the edit page and prompts you to select super attributes.
 
@@ -75,25 +77,20 @@ Other sections to fill on the parent:
 | **Categories** | Category assignment for the configurable (applies to all variants). |
 | **Associations** | Related / Up-sell / Cross-sell products (see below). |
 
+Each section renders as its own card on the edit page. The **Description** cards carry a WYSIWYG editor. The **Technical** card holds the green **Status** toggle — leaving it disabled takes the whole configurable (parent **and** all variants) offline. The **Categories** card opens a tree picker; anything you select here applies to every variant.
+
 <ImagePopup src="/assets/2.0/images/configurable-product/editProduct.png" alt="Configurable Product Edit Page" />
-
-<ImagePopup src="/assets/2.0/images/configurable-product/description.png" alt="Description fields" />
-
-<ImagePopup src="/assets/2.0/images/configurable-product/status.png" alt="Status toggle" />
-
-<ImagePopup src="/assets/2.0/images/configurable-product/category.png" alt="Category assignment" />
 
 ### Step 4 — Add variants
 
-Scroll to the **Variations** section and click **Add Product** to create a child variant.
-
-<ImagePopup src="/assets/2.0/images/configurable-product/variant.png" alt="Variations section" />
+Scroll to the **Variations** section and click **Add Product** to create a child variant. A modal opens with one input per super attribute plus a **SKU** field for the variant itself.
 
 For each variant:
 
 1. Enter the values for the super attributes (e.g., `Size = M`, `Color = Red`).
-2. Optionally override any variant-specific fields (SKU, price, image).
-3. Click **Add** to save the variant.
+2. Enter the variant SKU.
+3. Optionally override any variant-specific fields (price, image, stock).
+4. Click **Add** to save the variant. It appears in a table under the Variations section alongside any siblings you've already created.
 
 <ImagePopup src="/assets/2.0/images/configurable-product/addVariant.png" alt="Add Variant form" />
 
@@ -109,19 +106,13 @@ At the bottom of the parent edit page, link this configurable to other products:
 | **Up-Sell Products** | Higher-end versions — a premium jacket line, a faster laptop. |
 | **Cross-Sell Products** | Complementary items — socks with shoes, cables with electronics. |
 
-For each section, click **Add**, search by SKU, select, and confirm.
-
-<ImagePopup src="/assets/2.0/images/configurable-product/upsell.png" alt="Associations — Up-sell Products" />
+For each section, click **Add**, search by SKU, select, and confirm. All three association cards accept as many products as you need.
 
 ### Step 6 — Save
 
-Click **Save Product**. The configurable and its variants appear in the Products Data Grid.
-
-<ImagePopup src="/assets/2.0/images/configurable-product/save.png" alt="Save Configurable Product" />
+Click **Save Product** in the top-right of the edit page. You're redirected back to the **Products Data Grid**, where the configurable appears with *Configurable* in the **Type** column. The variants don't show as separate rows — they're accessible only through the parent's **Variations** section.
 
 <ImagePopup src="/assets/2.0/images/configurable-product/datagrid.png" alt="Configurable Product in Datagrid" />
-
-<ImagePopup src="/assets/2.0/images/configurable-product/final.png" alt="Final Configurable Product" />
 
 ::: tip
 Attributes with a **channel badge** hold values per channel; with a **locale badge**, per locale; with both, per channel **and** per locale. This applies to the parent and to variants.
@@ -153,19 +144,11 @@ Use **Bulk Edit** on the Products listing to update attributes across many confi
 
 ### History
 
-Click the **History** tab on the parent edit page for an audit trail of every change — attribute edits, status flips, category changes, association changes. Each variant also has its own history accessible from its individual edit view.
-
-<ImagePopup src="/assets/2.0/images/configurable-product/history.png" alt="Configurable Product History" />
-
-<ImagePopup src="/assets/2.0/images/configurable-product/preview.png" alt="History entry detail" />
+Click the **History** tab on the parent edit page for an audit trail of every change — attribute edits, status flips, category changes, association changes. Each entry lists the date, the user, and the specific fields that changed with before-and-after values. Each variant has its own history accessible from its individual edit view.
 
 ### Quick Export
 
-Select the configurable(s) in **Catalog >> Products** and use **Quick Export** to download in CSV, XLS, or XLSX. The export includes the parent record and its variants. For scheduled or filtered exports, use the full **[Export](../data-transfer/export.md)** workflow.
-
-<ImagePopup src="/assets/2.0/images/configurable-product/export.png" alt="Quick Export" />
-
-<ImagePopup src="/assets/2.0/images/configurable-product/exportOutput.png" alt="Export Output" />
+Select the configurable(s) in **Catalog → Products** and use **Quick Export** (top-right, next to Create Product) to download in CSV, XLS, or XLSX. The export bundles the parent record with its variants in a single file, so importing the result back recreates the full configurable structure. For scheduled or filtered exports, use the full **[Export](../data-transfer/export.md)** workflow.
 
 ## Related reading
 

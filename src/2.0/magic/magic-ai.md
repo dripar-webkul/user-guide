@@ -22,11 +22,11 @@ Every Magic AI action follows the same pipeline:
 
 1. **Trigger** — click a wand icon, save a product, run a translation command, or send a chat message.
 2. **Context assembly** — UnoPim combines the target entity's current data, the relevant **Prompt** template (with `@attribute` placeholders expanded), and the active **System Prompt** personality.
-3. **Dispatch** — the assembled request goes through the unified `LaravelAiAdapter` to the Platform and Model you selected for that capability under **Magic AI >> Settings**.
+3. **Dispatch** — the assembled request goes through the unified `LaravelAiAdapter` to the Platform and Model you selected for that capability under **Magic AI → Settings**.
 4. **Response** — the provider returns text, an image, or a translation.
 5. **Apply** — the result is inserted into the field (text/image), written to locale columns (translation), or streamed into the chat (agent).
 
-The unified adapter means you can **swap providers without touching your workflow** — switch the default Platform under Magic AI >> Settings and every feature uses the new one on the next request.
+The unified adapter means you can **swap providers without touching your workflow** — switch the default Platform under Magic AI → Settings and every feature uses the new one on the next request.
 
 ## Content Generation
 
@@ -56,11 +56,11 @@ All providers are managed through a unified **LaravelAiAdapter** implementation.
 
 Follow these steps to generate text content for your products using Magic AI:
 
-1. Navigate to **Catalog >> Products** and click **Edit** on a product.
+1. Navigate to **Catalog → Products** and click **Edit** on a product.
 2. Find a text field that supports AI generation (Name, Short Description, Description, Meta Title, Meta Description, etc.).
 3. Click the **Magic AI icon** (sparkle/wand icon) next to the field.
 4. The AI generates content based on:
-   - The configured **Prompt** for that field type (from **Magic AI >> Prompts**).
+   - The configured **Prompt** for that field type (from **Magic AI → Prompts**).
    - The product's existing data (name, category, attributes) — which is substituted in where the prompt uses `@attribute_code` placeholders.
    - The active **System Prompt** personality (tone, temperature, max tokens).
 5. The generated content appears in the field.
@@ -70,24 +70,24 @@ Follow these steps to generate text content for your products using Magic AI:
 You can also generate content for categories by opening a category edit page and using the wand icon on supported fields.
 
 ::: tip
-Configure your preferred AI provider and model in **Magic AI >> Settings >> Text Generation** before using this feature. Pick a model that balances quality and cost for your needs.
+Configure your preferred AI provider and model in **Magic AI → Settings → Text Generation** before using this feature. Pick a model that balances quality and cost for your needs.
 :::
 
 ## How to Generate Images with AI
 
 Follow these steps to generate product images using Magic AI:
 
-1. Navigate to **Catalog >> Products** and click **Edit** on a product.
+1. Navigate to **Catalog → Products** and click **Edit** on a product.
 2. Find an **Image** or **Gallery** attribute.
 3. Click the **Magic AI icon** next to the image field.
-4. Enter a description of the image you want (or accept the default Image prompt from **Magic AI >> Prompts**).
+4. Enter a description of the image you want (or accept the default Image prompt from **Magic AI → Prompts**).
 5. The AI generates a product image matching the description.
 6. Review the generated image.
 7. Accept it to attach it to the product.
 8. Click **Save Product**.
 
 ::: tip
-Image generation requires a Platform whose provider supports images (OpenAI with DALL-E, Gemini, or xAI). Configure it under **Magic AI >> Settings >> Image Generation**.
+Image generation requires a Platform whose provider supports images (OpenAI with DALL-E, Gemini, or xAI). Configure it under **Magic AI → Settings → Image Generation**.
 :::
 
 ## Custom Prompts
@@ -99,7 +99,7 @@ You can create prompts for specific use cases such as:
 - "Write SEO-optimized content with keywords for fashion products"
 - "Create a brief 50-word summary suitable for mobile displays"
 
-Manage prompts from **Magic AI >> Prompts**. Each prompt belongs to an **entity type** (product / category) and a **purpose** (text / image).
+Manage prompts from **Magic AI → Prompts**. Each prompt belongs to an **entity type** (product / category) and a **purpose** (text / image).
 
 <!-- TODO: Add screenshot of custom prompts configuration -->
 
@@ -107,7 +107,7 @@ Manage prompts from **Magic AI >> Prompts**. Each prompt belongs to an **entity 
 
 **System Prompts** configure the AI's overall **personality** — voice, tone, and generation parameters (temperature, max tokens) — and apply across every Magic AI feature. Only **one** system prompt is active at any time, so your entire catalog keeps a consistent voice.
 
-Manage them from **Magic AI >> System Prompts**. See the [System Prompts section of Magic AI Configuration](../configuration/magic-ai.md#system-prompts) for the full list of 10 preset personalities that ship with UnoPim.
+Manage them from **Magic AI → System Prompts**. See the [System Prompts section of Magic AI Configuration](../configuration/magic-ai.md#system-prompts) for the full list of 10 preset personalities that ship with UnoPim.
 
 <!-- TODO: Add screenshot of system prompt management -->
 
@@ -129,7 +129,7 @@ Magic AI provides **automatic translation** of product data. When enabled, savin
 
 ### Translation Settings UI
 
-The Translation section lives on the Magic AI Settings page at **Magic AI >> Settings**. The fields:
+The Translation section lives on the Magic AI Settings page at **Magic AI → Settings**. The fields:
 
 | Field | What it does |
 |---|---|
@@ -180,7 +180,7 @@ Under the hood:
 
 ## Auto-Enrichment
 
-**Auto-Enrichment** automatically fills in missing product information — descriptions, meta titles, meta descriptions, and other text fields flagged as incomplete. When enabled under **Magic AI >> Settings >> Agentic PIM**, Magic AI analyzes each product and generates values for the empty fields.
+**Auto-Enrichment** automatically fills in missing product information — descriptions, meta titles, meta descriptions, and other text fields flagged as incomplete. When enabled under **Magic AI → Settings → Agentic PIM**, Magic AI analyzes each product and generates values for the empty fields.
 
 This is particularly useful for:
 - Bulk-imported products that lack descriptions.
@@ -213,4 +213,4 @@ See the [AI Agent Chat](../ai-agent/ai-agent-chat.md) page for the full tool lis
 | **Uses Platforms/Prompts/System Prompts?** | Yes | Yes |
 | **Has its own safety layer?** | Field-level preview before save | Approval Queue, Confidence Threshold, Token Budget, Max Steps |
 
-They're two interfaces over the **same Magic AI core** — configure Magic AI once under **Magic AI >> Platforms / Settings / Prompts / System Prompts**, and both sets of features light up.
+They're two interfaces over the **same Magic AI core** — configure Magic AI once under **Magic AI → Platforms / Settings / Prompts / System Prompts**, and both sets of features light up.

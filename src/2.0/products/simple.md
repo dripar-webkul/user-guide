@@ -24,15 +24,17 @@ Because attribute availability is driven by the **attribute family**, a Simple P
 
 ### Step 1 — Start creation
 
-1. Click **Catalog >> Products >> Create Product**.
-2. Select product type **Simple**.
-3. Pick the **Family** (controls which attributes are editable).
-4. Enter a unique **SKU**.
-5. Click **Save**.
+1. Click **Catalog → Products**.
+2. In the top-right corner, click **Create Product**. A dialog titled **"Create New Product"** opens.
+3. Fill in the three fields:
+   - **Type** — `Simple`.
+   - **Family** — the attribute family that controls which fields will appear on the edit page.
+   - **SKU** — a unique identifier for the product.
+4. Click **Save Product**.
 
-<ImagePopup src="/assets/2.0/images/simple-product/simple.png" alt="Create Simple Product" />
+<ImagePopup src="/assets/2.0/images/simple-product/simple.png" alt="Create Simple Product modal" />
 
-UnoPim redirects you to the edit page, where every remaining field is filled in.
+UnoPim closes the dialog and redirects you to the edit page, where every remaining field can be filled in.
 
 <ImagePopup src="/assets/2.0/images/simple-product/editProduct.png" alt="Edit Simple Product" />
 
@@ -59,13 +61,7 @@ Additional built-in sections for the `default` family:
 | **Categories** | Assign the product to one or more categories (including a root category). |
 | **Associations** | Related / Up-sell / Cross-sell product links (see below). |
 
-<ImagePopup src="/assets/2.0/images/simple-product/description.png" alt="Description fields" />
-
-<ImagePopup src="/assets/2.0/images/simple-product/price.png" alt="Price section" />
-
-<ImagePopup src="/assets/2.0/images/simple-product/status.png" alt="Status toggle" />
-
-<ImagePopup src="/assets/2.0/images/simple-product/category.png" alt="Category assignment" />
+Each section appears as its own card on the edit page. The **Short Description** and **Description** cards include a WYSIWYG editor for rich text. The **Price** card shows one row per configured currency. The **Technical** card holds the green **Status** toggle — leave it *Enabled* for the product to be considered active. The **Categories** card opens a tree picker; tick every node the product belongs to. All cards share the same *Save Product* button in the top-right of the page.
 
 ### Step 3 — Add associations
 
@@ -77,23 +73,13 @@ At the bottom of the edit page you can link this product to others. All three se
 | **Up-Sell Products** | Higher-end versions — a better TV, a faster laptop, a more durable tablet. |
 | **Cross-Sell Products** | Complementary items — protective case + laptop, adapter + phone. |
 
-<ImagePopup src="/assets/2.0/images/simple-product/related.png" alt="Related Products" />
-
-<ImagePopup src="/assets/2.0/images/simple-product/upsell.png" alt="Up-sell Products" />
-
-<ImagePopup src="/assets/2.0/images/simple-product/association.png" alt="Associations" />
+Each of the three association cards has the same layout: an **Add** button opens a search-by-SKU picker, ticked products appear as a list underneath with a ✕ button to remove them, and there's no limit on how many you can add.
 
 ### Step 4 — Save
 
-Click **Save Product**. The product appears in the **Products Data Grid**.
-
-<ImagePopup src="/assets/2.0/images/simple-product/save.png" alt="Save Product" />
+Click **Save Product** in the top-right of the edit page. You're redirected back to the **Products Data Grid**, where the new product appears as a row with its SKU, image thumbnail, name, attribute family, status chip, type (*Simple*), and completeness percentage.
 
 <ImagePopup src="/assets/2.0/images/simple-product/datagrid.png" alt="Products Datagrid" />
-
-<ImagePopup src="/assets/2.0/images/simple-product/product-listing.png" alt="Product Listing" />
-
-<ImagePopup src="/assets/2.0/images/simple-product/final.png" alt="Final Product" />
 
 ::: tip
 Attributes that support values per channel show a **channel badge**. Attributes that support values per locale show a **locale badge**. Attributes that support both show both badges — these are the fields you'll revisit when you switch channels or locales on the edit page.
@@ -111,7 +97,7 @@ UnoPim supports **Product Values Translation** — per-locale values for any att
 
 #### Manual translation
 
-1. Open the product in **Catalog >> Products**.
+1. Open the product in **Catalog → Products**.
 2. At the top of the edit page, use the two switchers:
    - **Channel Switcher** (e.g., *Default*) — picks which channel's values you're editing.
    - **Locale Switcher** (e.g., *English (United States)*) — picks the locale.
@@ -126,7 +112,7 @@ A **DEFAULT** badge means channel-specific. A locale badge (e.g., `EN_US`) means
 
 #### Auto-translation with Magic AI
 
-Enable **Magic AI >> Settings >> Translation** and every product save auto-translates locale-specific fields into the target locales:
+Enable **Magic AI → Settings → Translation** and every product save auto-translates locale-specific fields into the target locales:
 
 1. Toggle **Enabled** on.
 2. Set the **Source Channel** and **Source Locale** (the language you write in).
@@ -146,7 +132,7 @@ UnoPim computes a **Product Completeness** score per product, per channel, per l
 - The Dashboard aggregates completeness per channel in the **Completeness** widget.
 
 ::: tip
-Pair completeness with **Magic AI Auto-Enrichment** (Magic AI >> Settings >> Agentic PIM) to automatically fill in missing fields and bump the score.
+Pair completeness with **Magic AI Auto-Enrichment** (Magic AI → Settings → Agentic PIM) to automatically fill in missing fields and bump the score.
 :::
 
 ### Review change history
@@ -157,24 +143,20 @@ Click the **History** tab on the product edit page to see every change. Each ent
 - The user who made it.
 - Exact fields that were modified, with before/after values.
 
-Click the **eye icon** on any entry to view the full detail. UnoPim tracks history for **products, categories, attributes, attribute families, and channels** with the same UI.
-
-<ImagePopup src="/assets/2.0/images/simple-product/history.png" alt="Product History" />
-
-<ImagePopup src="/assets/2.0/images/simple-product/preview.png" alt="History entry detail" />
+Click the **eye icon** on any entry to open a detail view that shows the before and after values side by side. UnoPim tracks history for **products, categories, attributes, attribute families, and channels** with the same UI.
 
 ### Duplicate a product
 
 To create a new product seeded from an existing one:
 
-1. In **Catalog >> Products**, find the row to copy.
+1. In **Catalog → Products**, find the row to copy.
 2. Click the **Copy icon** (clipboard) in the Actions column.
 3. UnoPim creates a duplicate with a new SKU.
 4. Edit the copy to customise it.
 
 ## Working with the Products listing
 
-The listing at **Catalog >> Products** is where you find, filter, bulk-edit, and export products.
+The listing at **Catalog → Products** is where you find, filter, bulk-edit, and export products.
 
 ### Manage columns
 
@@ -196,19 +178,36 @@ To customise:
 
 ### Filter products
 
-Click **Filter** above the datagrid to expand the filter panel. You can filter by:
+Click **Filter** above the datagrid to slide open the **Apply Filters** drawer from the right side of the screen. The drawer carries a fixed set of built-in filter fields plus an **Add Filter** button for custom attributes.
 
-- SKU, Name, Type (Simple / Configurable), Status (Enabled / Disabled), Attribute Family.
-- Any visible column — text, dropdown, or date-range depending on the column type.
-- Multiple filters can be combined for precise queries.
+**Built-in filters** (always shown):
 
-Click **Apply Filters** to run the query, or clear individual filters to reset.
+- **SKU** — text match.
+- **Name** — text match.
+- **Attribute Family** — dropdown of all configured families.
+- **Status** — Enabled / Disabled dropdown.
+- **Type** — Simple / Configurable dropdown.
+
+**Add Filter (custom attributes)**
+
+Click **Add Filter** at the bottom of the drawer to append a filter for any attribute that has **Is Filterable** ticked on its Configuration card (see [Product Attribute → Configuration](../attribute/product-attribute.md#add-attributes)). This is how you filter the listing by `color`, `size`, `brand`, or any other attribute relevant to your catalog:
+
+1. In the drawer, click **Add Filter**.
+2. Pick an attribute from the dropdown — only attributes with **Is Filterable = on** are listed.
+3. Enter or select the value(s) to filter on. Input shape depends on the attribute's data type (text input, select dropdown, date range, checkbox, etc.).
+4. Repeat **Add Filter** to stack more filters — they combine with AND logic.
+
+Click **Save** at the bottom of the drawer to apply the filter set. The datagrid reloads showing only the matching rows. To clear, open the drawer again and remove individual filter chips, or reload the page to reset.
+
+::: tip
+If an attribute you want to filter by isn't in the Add Filter dropdown, head to **Catalog → Attributes**, edit the attribute, tick **Is Filterable** in the Configuration card, and save. It appears in the dropdown immediately.
+:::
 
 ### Bulk edit
 
 UnoPim supports **Bulk Edit** on any attribute shared by the selected products:
 
-1. Go to **Catalog >> Products**.
+1. Go to **Catalog → Products**.
 2. Tick the rows you want to edit.
 3. Open the **Bulk Actions** dropdown.
 4. Select **Edit** and choose the attribute.
@@ -230,13 +229,9 @@ UnoPim supports **Bulk Edit** on any attribute shared by the selected products:
 Export selected (or all) products directly from the listing:
 
 1. Select the products.
-2. Click **Quick Export**.
-3. Choose **CSV**, **XLS**, or **XLSX**.
-4. The file downloads once processing is complete.
-
-<ImagePopup src="/assets/2.0/images/simple-product/export.png" alt="Quick Export" />
-
-<ImagePopup src="/assets/2.0/images/simple-product/exportOutput.png" alt="Export Output" />
+2. Click **Quick Export** in the top-right, next to **Create Product**.
+3. Choose **CSV**, **XLS**, or **XLSX** from the format picker.
+4. UnoPim generates the file in the background and downloads it to your browser once processing finishes. You can watch the job progress on the **Job Tracker** page while you wait.
 
 For scheduled or filtered exports, use the full **[Export](../data-transfer/export.md)** workflow in Data Transfer.
 

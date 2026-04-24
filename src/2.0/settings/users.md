@@ -4,7 +4,7 @@ It refer to the individuals who interact with the system, including roles such a
 
 ### Steps to create Users in UnoPim
 
-**Step 1:** It can be set on the admin panel by going to **Setting >> Users**. Here you can create new users by clicking on the button **Create User** as shown in below image.
+**Step 1:** It can be set on the admin panel by going to **Settings → Users**. Here you can create new users by clicking on the button **Create User** as shown in below image.
 
 <ImagePopup src="/assets/2.0/images/settings/createUser.png" alt="Create User" />
 

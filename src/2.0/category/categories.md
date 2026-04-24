@@ -12,7 +12,7 @@ Here we have listed down steps to create a new category in UnoPim.
 
 ### Steps to Create a New Category in UnoPim
 
-1. Click on **Catalog >> Categories >> Create Category** as shown in the below image.
+1. Click on **Catalog → Categories → Create Category** as shown in the below image.
 
    <ImagePopup src="/assets/2.0/images/category/create.png" alt="Create Category" />
 

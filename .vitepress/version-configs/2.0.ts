@@ -12,12 +12,17 @@ function setVersionPrefix(children: [string, string][]) {
 export default [
   {
     text: 'Introduction',
-    link: `/${version}/introduction/introductions`
+    link: `/${version}/introduction/`
   },
 
   {
-    text: 'Key Features by Version',
+    text: "What's New",
     link: `/${version}/releases/`
+  },
+
+  {
+    text: 'Agentic PIM',
+    link: `/${version}/agenticPim/`
   },
 
   {

@@ -8,7 +8,7 @@ Open the Admin Panel and follow the steps below.
 
 ### Add Attributes
 
-**Step 1** — Click **Catalog >> Attributes >> Create Attributes**.
+**Step 1** — Click **Catalog → Attributes → Create Attributes**.
 
 <ImagePopup src="/assets/2.0/images/attributes/createAttribute.png" alt="Create Attribute" />
 
@@ -28,15 +28,25 @@ Open the Admin Panel and follow the steps below.
 
 <ImagePopup src="/assets/2.0/images/attributes/validation.png" alt="Validation section" />
 
-**Step 5** — Choose whether the attribute value should be per-locale and/or per-channel.
+**Step 5** — Open the **Configuration** card on the right of the form and tick the options that apply:
+
+| Option | What it does |
+|---|---|
+| **Value Per Locale** | The attribute stores a separate value per locale. Switch the locale on the product edit page to enter each translation. |
+| **Value Per Channel** | The attribute stores a separate value per channel. Useful when the same field differs across storefronts (e.g., per-channel price or description). |
+| **Is Filterable** | Makes the attribute available in the **Apply Filters** drawer on the Products listing (see [Filter products](../products/simple.md#filter-products)). Tick this for any attribute you want to use as a filter — `size`, `color`, `brand`, etc. |
 
 <ImagePopup src="/assets/2.0/images/attributes/configuration.png" alt="Configuration section" />
+
+::: tip
+Toggling **Is Filterable** on an existing attribute immediately enables the **Add Filter** option for it on the Products listing — no reindex step needed.
+:::
 
 Click **Save Attribute**. The new attribute appears in the Datagrid.
 
 <ImagePopup src="/assets/2.0/images/attributes/output.png" alt="Attribute Datagrid" />
 
-Next, go to **Catalog >> Attribute Families**, open the family you want the attribute in, and drag the attribute from the unassigned list into the desired group.
+Next, go to **Catalog → Attribute Families**, open the family you want the attribute in, and drag the attribute from the unassigned list into the desired group.
 
 <ImagePopup src="/assets/2.0/images/attributes/family.png" alt="Attribute Family assignment" />
 

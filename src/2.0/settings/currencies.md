@@ -4,7 +4,7 @@ Currencies in UnoPim refer to the different monetary systems used to manage and 
 
 ### Add Currency in UnoPim
 
-**Step 1:** On the Admin panel of UnoPim go to **Setting >> Currencies >> Create Currency** as shown in below image.
+**Step 1:** On the Admin panel of UnoPim go to **Settings → Currencies → Create Currency** as shown in below image.
 
  <ImagePopup src="/assets/2.0/images/settings/createCurrency.png" alt="Currency" />
 
@@ -16,7 +16,7 @@ Currencies in UnoPim refer to the different monetary systems used to manage and 
 
  <ImagePopup src="/assets/2.0/images/settings/currencyGrid.png" alt="Currency Grid" />
 
-**Step 4:** On the admin panel click on **Settings >> Channels** you will able to see your new currency get visible in the currencies section.
+**Step 4:** On the admin panel click on **Settings → Channels** you will able to see your new currency get visible in the currencies section.
 
 Once the channel setting has been done click on **Save Channel** as shown in the below image.
 

@@ -2,7 +2,7 @@
 
 [UnoPim](https://unopim.com/) is an open-source Product Information Management (PIM) system built on the **Laravel 12** framework and requires **PHP 8.3**. It helps businesses organize, manage, and enrich their product information in one central repository.
 
-### Features
+## Features
 
 **1) Centralized Product Management-**
 Manage all your product data in one place with support for Simple and Configurable product types.

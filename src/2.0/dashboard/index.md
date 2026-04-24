@@ -109,17 +109,21 @@ A two-line chart plotting **Created** vs. **Updated** products per day for the l
 
 ### Completeness
 
-Shows how well your product data meets the requirements **per channel**. Each channel is rendered as a **percentage circle** (e.g., 89%) with a short verdict underneath:
+Shows how well your product data meets each **channel's** requirements, with **per-locale breakdowns visible side by side**. For every configured channel (e.g., *Default*, *Amazon*, *Flipkart*), the card displays:
+
+- An **overall channel percentage** as a circular gauge.
+- **Per-locale rows** — one row per locale assigned to that channel (e.g., German, English, French), each with its own gauge.
+- A **short verdict** under the headline gauge:
 
 | Message | Meaning |
 |---|---|
 | **Almost complete** | Nearly ready — only minor additions needed. |
 | **Low completeness, add details to improve** | Significant product information is still missing. |
 
-You can drill into channel-specific completeness to see per-locale scores inside that channel.
+This layout makes it easy to spot the exact channel + locale combination that is blocking a product from being shippable.
 
 ::: tip
-Work on the lowest-scoring channel first — completeness is computed *per channel*, so a product that's ready in one channel can still be blocked in another.
+Work on the lowest-scoring channel-locale pair first. A product can be ready for *Default* but still blocked on *Amazon → French* if any required attribute is missing in that specific combination.
 :::
 
 ### Channel Readiness
