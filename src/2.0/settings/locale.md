@@ -6,7 +6,7 @@ It refers to the regional or cultural settings that determine how product inform
 
 Here we have explained the steps to set Locales in UnoPim.
 
-**Step 1:** On the Admin panel of UnoPim go to **Settings >> Locales >> Create Locale** as shown below.
+**Step 1:** On the Admin panel of UnoPim go to **Settings → Locales → Create Locale** as shown below.
 
  <ImagePopup src="/assets/2.0/images/settings/createLocale.png" alt="Locales" />
 
@@ -22,7 +22,7 @@ Here we have explained the steps to set Locales in UnoPim.
 
 <ImagePopup src="/assets/2.0/images/settings/grid.png" alt="Grid" />
 
-**Step 4:** On the admin panel open **Settings >> Channels** you will able to see your new language is visible in the Currencies and Locales section to enable this select your local and then click on **Save Channel** as shown in the below image.
+**Step 4:** On the admin panel open **Settings → Channels** you will able to see your new language is visible in the Currencies and Locales section to enable this select your local and then click on **Save Channel** as shown in the below image.
 
 <ImagePopup src="/assets/2.0/images/settings/channel.png" alt="Channel" />
 

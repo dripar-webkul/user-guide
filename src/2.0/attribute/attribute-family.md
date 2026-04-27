@@ -6,7 +6,7 @@ It can be specified as a list of attributes that are related to a unique product
 
 ### Create Attribute Family in UnoPim
 
-**Step 1**:- On the Admin Dashboard, click **Catalog** >> **Attribute Families** >> **Create Attribute Family**
+**Step 1**:- On the Admin Dashboard, click **Catalog** → **Attribute Families** → **Create Attribute Family**
 
  <ImagePopup src="/assets/2.0/images/attributes/createFamily.png" alt="Attribute Family" />
 

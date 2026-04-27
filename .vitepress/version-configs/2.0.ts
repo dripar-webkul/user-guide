@@ -12,17 +12,23 @@ function setVersionPrefix(children: [string, string][]) {
 export default [
   {
     text: 'Introduction',
-    link: `/${version}/introduction/introductions`
+    link: `/${version}/introduction/`
   },
 
   {
-    text: 'Key Features by Version',
+    text: "What's New",
     link: `/${version}/releases/`
   },
 
   {
+    text: 'Agentic PIM',
+    link: `/${version}/agenticPim/`
+  },
+
+  {
     text: 'Dashboard',
-    link: `/${version}/dashboard/`
+    link: `/${version}/dashboard/`,
+    items: []
   },
 
   {
@@ -51,9 +57,21 @@ export default [
     collapsed: false,
     items: setVersionPrefix([
       ['attribute/attribute-input', 'Attribute Input Type'],
-      ['attribute/product-attribute', 'Create Product Attribute'],
+      ['attribute/product-attribute', 'Product Attribute'],
       ['attribute/attribute-family', 'Attribute Family'],
       ['attribute/attribute-groups', 'Attribute Groups'],
+    ])
+  },
+
+  {
+    text: 'Magic AI',
+    link: `/${version}/magic/magic-ai`,
+    collapsed: false,
+    items: setVersionPrefix([
+      ['magic-ai/platforms', 'Platforms'],
+      ['magic-ai/settings', 'Settings'],
+      ['magic-ai/prompts', 'Prompts'],
+      ['magic-ai/system-prompts', 'System Prompts'],
     ])
   },
 
@@ -62,6 +80,7 @@ export default [
     link: `/${version}/data-transfer/`,
     collapsed: false,
     items: setVersionPrefix([
+      ['data-transfer/job-tracker', 'Job Tracker'],
       ['data-transfer/import', 'Import'],
       ['data-transfer/export', 'Export'],
     ])
@@ -81,11 +100,6 @@ export default [
   },
 
   {
-    text: 'Notifications',
-    link: `/${version}/notifications/`
-  },
-
-  {
     text: 'Configurations',
     link: `/${version}/configuration/`,
     collapsed: false,
@@ -96,12 +110,8 @@ export default [
   },
 
   {
-    text: 'Magic AI',
-    link: `/${version}/magic/magic-ai`,
-    collapsed: false,
-    items: setVersionPrefix([
-      ['configuration/magic-ai', 'Platforms, Prompts & Settings'],
-    ])
+    text: 'Notifications',
+    link: `/${version}/notifications/`
   },
 
   {
@@ -110,6 +120,8 @@ export default [
     collapsed: false,
     items: setVersionPrefix([
       ['ai-agent/ai-agent-chat', 'AI Agent Chat'],
+      ['ai-agent/approval-queue', 'Approval Queue'],
+      ['ai-agent/analytics', 'Analytics'],
     ])
-  }
+  },
 ]

@@ -1,8 +1,8 @@
 # Introduction
 
-[UnoPim](https://unopim.com/) is an open-source Product Information Management (PIM) system built on the Laravel framework. It helps businesses organize, manage, and enrich their product information in one central repository.
+[UnoPim](https://unopim.com/) is an open-source Product Information Management (PIM) system built on the **Laravel 12** framework and requires **PHP 8.3**. It helps businesses organize, manage, and enrich their product information in one central repository.
 
-### Features
+## Features
 
 **1) Centralized Product Management-**
 Manage all your product data in one place with support for Simple and Configurable product types.
@@ -26,13 +26,13 @@ Support for multiple languages and locales with automatic AI-powered translation
 Easily import and export product data using CSV, XLS, and XLSX formats, with drag-and-drop file upload, real-time job tracking, and pause/resume/cancel controls.
 
 **8) Magic AI for Product Content Generation-**
-Automatically generate engaging product content using advanced LLM technology with support for 10+ AI providers including OpenAI, Gemini, Ollama, and Groq.
+Automatically generate engaging product content using advanced LLM technology with support for 10+ AI providers including OpenAI, Gemini, Anthropic, Ollama, and Groq.
 
 **9) Multi-Channel Support-**
 Manage and distribute your product data across multiple sales channels from a single platform.
 
 **10) AI Agent Chat-**
-Interact with your PIM using natural language through the AI Agent Chat interface with 32+ built-in PIM tools for product management, data quality, and bulk operations.
+Interact with your PIM using natural language through the AI Agent Chat interface with 30+ built-in PIM tools for product management, data quality, and bulk operations.
 
 **11) Product Completeness-**
 Monitor data quality with product completeness scoring that tracks how much required information has been filled in per channel and locale.

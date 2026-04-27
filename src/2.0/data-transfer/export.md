@@ -4,7 +4,7 @@ Exporting data to save information in files is a common practice for data manage
 
 ### Steps to add Bulk Export in UnoPim
 
-**Step 1:** Go to the Admin panel of UnoPim click on **Data Transfer >> Exports** and click on Create Exports button.
+**Step 1:** Go to the Admin panel of UnoPim and click on **Data Transfer → Exports** in the sidebar, then click the **Create Export** button.
 
  <ImagePopup src="/assets/2.0/images/data-transfer/export-listing.png" alt="Export Listing" />
 
@@ -18,7 +18,7 @@ Exporting data to save information in files is a common practice for data manage
 
 4) **With Media -** Enable or Disable if you need the export data with or without Media. 
 
-Now, click on **Save Export** button
+Now, click on **Save Export** button. The profile is saved and you return to the Exports listing.
 
  <ImagePopup src="/assets/2.0/images/data-transfer/create-export-form.png" alt="Create Export Form" />
 
@@ -26,22 +26,19 @@ The create export form has a two-panel layout:
 - **General panel (left)** — Code, Type (Products/Categories)
 - **Filters panel (right)** — File Format (CSV/XLS/XLSX dropdown), With Media (toggle)
 
-**Step 3:** From the export listing, click the **Export** action icon (play icon) on the row of the export you want to run. This opens the export execution page.
+**Step 3:** From the export listing, click the **Export** action icon (play icon) on the row you want to run. This opens the execution page, which shows a summary of the export configuration:
 
- <ImagePopup src="/assets/2.0/images/data-transfer/export-running.png" alt="Export Execution Page" />
-
-The execution page shows a summary of the export configuration:
 - **Export Profile** — The export code
 - **File Format** — CSV, XLS, or XLSX
 - **With Media** — Yes or No
 
-Click the **Export Now** button to start processing.
+Click the **Export Now** button. UnoPim queues the job and redirects you to the **Job Tracker** detail view for that job.
 
 ## Export Tracker
 
-**Step 4:** After clicking Export Now, you are redirected to the **Job Tracker** page which shows real-time progress of your export.
+**Step 4:** The Job Tracker detail page shows the step pipeline in real time. Each step lights up with a green checkmark as it completes, and when the job finishes you get a success banner plus record counts and download links:
 
- <ImagePopup src="/assets/2.0/images/data-transfer/export-progress.png" alt="Export Progress" />
+ <ImagePopup src="/assets/2.0/images/data-transfer/export-progress.png" alt="Export detail page — step pipeline" />
 
 The tracker shows a **step pipeline** with visual progress indicators:
 
@@ -75,7 +72,7 @@ The pause and resume feature is especially useful for large exports. You can pau
 
 UnoPim supports **dynamic management of quick product export jobs**. You can quickly export selected products directly from the product listing:
 
-1. Navigate to **Catalog >> Products**
+1. Navigate to **Catalog → Products**
 2. Select the products you want to export (or export all)
 3. Click on **Quick Export** button in the top-right
 4. Choose the format (CSV, XLS, XLSX)

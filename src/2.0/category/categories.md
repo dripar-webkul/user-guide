@@ -8,9 +8,11 @@ Here we have listed down steps to create a new category in UnoPim.
 
 [UnoPim](https://unopim.com/) comes with a default root category. Root category acts as a container to contain the sub categories.
 
+<ImagePopup src="/assets/2.0/images/category/category-listing.png" alt="Category Listing" />
+
 ### Steps to Create a New Category in UnoPim
 
-1. Click on **Catalog >> Categories >> Create Category** as shown in the below image.
+1. Click on **Catalog → Categories → Create Category** as shown in the below image.
 
    <ImagePopup src="/assets/2.0/images/category/create.png" alt="Create Category" />
 
