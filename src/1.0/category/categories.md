@@ -12,12 +12,12 @@ Here we have listed down steps to create a new category in UnoPim.
 
 1. Click on **Catalog >> Categories >> Create Category** as shown in the below image.
 
-   ![Create Category](/assets/1.0/images/category/create.png)
+   <ImagePopup src="/assets/1.0/images/category/create.png" alt="Create Category" />
 
 2. Enter the general values like **Code, Name & Description**. You can also assign your subcategory to a parent category, such as root if needed.
 
-   ![Save Category](/assets/1.0/images/category/saveCategory.png)
+   <ImagePopup src="/assets/1.0/images/category/saveCategory.png" alt="Save Category" />
 
 4. Save the category, and a category is created by the name of New Category in the Data Grid as shown in the below image.
 
-    ![Data Grid](/assets/1.0/images/category/datagrid.png)
+    <ImagePopup src="/assets/1.0/images/category/datagrid.png" alt="Data Grid" />

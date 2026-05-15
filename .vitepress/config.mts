@@ -1,6 +1,7 @@
 // .vitepress/config.ts
 import { defineConfig } from 'vitepress'
 import v10 from './version-configs/1.0'
+import v20 from './version-configs/2.0'
 
 export default defineConfig({
   base: '/',
@@ -53,7 +54,8 @@ export default defineConfig({
     ],
 
     sidebar: {
-      '/1.0/': v10
+      '/1.0/': v10,
+      '/2.0/': v20
     },
 
     editLink: {
@@ -66,14 +68,16 @@ export default defineConfig({
       formatOptions: { dateStyle: 'full' }
     },
 
-    socialLinks: [
-      { icon: 'github', link: 'https://github.com/unopim' }
-    ],
+    socialLinks: [],
 
     footer: {
       message:
         'Released under the <a href="https://opensource.org/licenses/mit" target="_blank">MIT License</a>.',
       copyright: `Copyright © ${new Date().getFullYear()} UnoPim`
+    },
+
+    outline: {
+      level: 'deep'
     },
 
     search: {

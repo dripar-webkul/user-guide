@@ -79,4 +79,6 @@ Magic AI makes UnoPim smarter and faster for managing product content.
 
 ---
 
-![Magic Content](/assets/1.0/images/magic-ai/content.png)
+<ImagePopup src="/assets/1.0/images/magic-ai/content.png" alt="Magic Content" />
+
+Say goodbye to time-consuming manual content creation as Magic AI crafts compelling and unique descriptions, saving you valuable time and effort.

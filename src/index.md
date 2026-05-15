@@ -8,7 +8,10 @@ hero:
   tagline: "Everything you need to manage products, categories, users, and more."
   actions:
     - theme: brand
-      text: Get Started →
+      text: Get Started (v2.0) →
+      link: /2.0/introduction/
+    - theme: alt
+      text: v1.0 Docs
       link: /1.0/introduction/
     - theme: alt
       text: View on GitHub
@@ -16,21 +19,45 @@ hero:
   image:
     src: /home-logo.png
     alt: UnoPim
+
 features:
   - title: Products and Categories
-    details: Learn how to create products and manage categories in UnoPim.
+    details: Create and manage product records and category hierarchies with completeness scoring and bulk edit capabilities.
     icon: 📦
-    link: /1.0/products/
+    link: /2.0/products/
 
   - title: Users and Roles
-    details: Learn how to create and manage users and roles in UnoPim.
+    details: Configure users, roles, and permissions to control access and responsibilities within UnoPim.
     icon: 👥
-    link: /1.0/settings/roles/
+    link: /2.0/settings/roles/
 
   - title: Locales and Currencies
-    details: Learn how to create and manage locales and currencies in UnoPim.
-    icon: 🌐
-    link: /1.0/settings/locale/
+    details: Set up locales and currencies to support multilingual and multi-currency product catalogs with AI-powered translation.
+    icon: 🌍
+    link: /2.0/settings/locale/
 
+  - title: Attributes & Family
+    details: Define and assign attributes and families with swatch types and video support to standardize product information.
+    icon: 🧩
+    link: /2.0/attribute/
 
+  - title: Import & Export
+    details: Import and export catalog data with drag-and-drop upload, real-time tracking, and pause/resume controls.
+    icon: 🔁
+    link: /2.0/data-transfer/
+
+  - title: AI Agent & Magic AI
+    details: Use the AI Agent Chat with 32+ PIM tools and Magic AI to automate product data enrichment across 10+ providers.
+    icon: 🤖
+    link: /2.0/ai-agent/
+
+  - title: Dashboard
+    details: Get a comprehensive overview with product statistics, activity charts, completeness scores, and channel readiness.
+    icon: 📊
+    link: /2.0/dashboard/
+
+  - title: Notifications & Webhooks
+    details: Stay informed with in-app notifications and automate workflows with product update webhooks.
+    icon: 🔔
+    link: /2.0/notifications/
 ---
