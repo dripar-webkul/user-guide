@@ -51,3 +51,9 @@ Edit multiple products at once by selecting them from the datagrid and applying 
 
 **16) PostgreSQL Support-**
 Full support for PostgreSQL databases in addition to MySQL for improved cross-database compatibility.
+
+## Agentic PIM Pipeline
+Every AI-powered action in UnoPim — from chat messages to background enrichment — follows a structured 5-step loop to ensure safety, precision, and transparency:
+
+<ImagePopup src="/assets/2.1/images/ai-agent/agentic-pim-pipeline.png" alt="Agentic PIM Pipeline — 5-Step Workflow" />
+

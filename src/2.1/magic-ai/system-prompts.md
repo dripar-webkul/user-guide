@@ -24,20 +24,7 @@ If a [**Prompt**](./prompts.md) says *what* to write for a specific field (*"wri
 <ImagePopup src="/assets/2.1/images/magic-ai/system-prompts.png" alt="System Prompts" />
 
 ## Where the active System Prompt is applied
-
-```
-Any Magic AI request (wand icon, auto-translate, agent chat, auto-enrichment)
-           │
-           ▼
-Magic AI picks the matching Prompt        ← from Magic AI → Prompts
-           │
-           ▼
-Active System Prompt is prepended          ← from Magic AI → System Prompts
-   (tone + temperature + max tokens)
-           │
-           ▼
-Combined request sent to Platform + Model  ← from Magic AI → Settings
-```
+Every AI request in UnoPim flows through a unified pipeline where the active System Prompt is prepended as the personality layer.
 
 Because the active System Prompt applies to **every** AI feature — wand icons, auto-translation, auto-enrichment, and the AI Agent — switching it instantly changes the voice of every AI output across the catalog.
 

@@ -4,17 +4,15 @@ An **attribute** is a single characteristic of a product — *Color*, *Size*, *B
 
 UnoPim's attribute system has three building blocks that fit together:
 
+```mermaid
+graph TD
+    A[Attribute] -->|Bundled into| G[Attribute Group]
+    G -->|Assigned to| F[Attribute Family]
+    F -->|Decides layout for| P[Product Edit Page]
 ```
-      Attribute          (one field — Color, Size, Price, …)
-           │
-           ▼
-   Attribute Group       (bundle of related attributes — "Product Info",
-           │              "SEO", "Technical specs", …)
-           ▼
-   Attribute Family      (the set of groups a product belongs to —
-                          "Default", "Apparel", "Electronics", …)
-                          → decides which fields show on each product edit page
-```
+
+Assigning a product to a family picks its editable fields; groups control how those fields are laid out on the page; attributes carry the actual values.
+
 
 Assigning a product to a family picks its editable fields; groups control how those fields are laid out on the page; attributes carry the actual values.
 

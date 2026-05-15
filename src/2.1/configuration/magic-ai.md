@@ -19,7 +19,9 @@ All four share the same provider connections, prompt library, and system persona
 
 ## How does Magic AI work?
 
-The pipeline is the same for every AI feature:
+The pipeline is the same for every AI feature — from field generation to the AI Agent:
+
+<ImagePopup src="/assets/2.1/images/ai-agent/agentic-pim-pipeline.png" alt="Agentic PIM Pipeline — 5-Step Workflow" />
 
 1. **You trigger a request** — click a wand icon, save a product with auto-translate on, or send a chat message to the AI Agent.
 2. **UnoPim assembles the input** — it combines:
@@ -29,6 +31,7 @@ The pipeline is the same for every AI feature:
 3. **UnoPim forwards the request** through the unified **LaravelAiAdapter** to the platform/model you selected in Magic AI → Settings.
 4. **The provider responds** with generated text, an image, or a translation.
 5. **UnoPim applies the result** — either directly into the field, into the database (after optional approval), or streamed back into the chat.
+
 
 Everything between step 2 and step 5 is configured from the four sub-pages described below: **Platforms**, **Settings**, **Prompts**, and **System Prompts**.
 
@@ -49,31 +52,10 @@ Expand **Magic AI** in the admin sidebar and you'll see four sub-menu items. Eac
 
 ### How the four menu items connect
 
-```
-        ┌────────────────────────┐
-        │   1. Platforms         │   ← add providers + models
-        │   Provider + API key   │
-        │   + enabled models     │
-        └────────┬───────────────┘
-                 │ feeds the dropdowns in
-                 ▼
-        ┌────────────────────────┐
-        │   2. Settings          │   ← route each capability to a platform+model
-        │   Text / Image /       │
-        │   Translation /        │
-        │   Agentic PIM          │
-        └───┬──────┬──────┬──────┘
-            │      │      │
-            │      │      └── uses ──► 4. System Prompts  (global personality)
-            │      │                    — one active at a time
-            │      │
-            │      └── uses ──► 3. Prompts  (per-entity, per-purpose templates)
-            │                    — `@placeholders` filled from entity data
-            │
-            └── keeps everything within ACL, budget, and approval-mode limits
-```
+<ImagePopup src="/assets/2.1/images/magic-ai/magic-ai-config-flow.png" alt="Magic AI Configuration Hierarchy" />
 
 **Read top to bottom, you configure once, then use everywhere.** A wand click on a product description, an auto-translated field, or a chat message to the AI Agent all follow the same path through these four menu items.
+
 
 ### Minimum setup order
 

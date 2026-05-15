@@ -25,42 +25,12 @@ Think of Agentic PIM as a small team of AI workers watching your catalog:
 All four share the same Platform, Model, Prompt, System Prompt, and token budget — configured once from **Magic AI → Settings**.
 
 ## How does Agentic PIM work?
-
 Every Agentic PIM action follows the same five-step pipeline:
 
-```
-1. Trigger
-   ├─ Chat message   (AI Agent Chat)
-   ├─ Product create  (Auto-Enrichment)
-   ├─ Schedule tick   (Catalog Quality Monitor)
-   └─ API action      (anything calling the agent over HTTP)
-        │
-        ▼
-2. Compose context
-   - Entity data (+ @attribute_code placeholders expanded)
-   - Matching Prompt from Magic AI → Prompts
-   - Active System Prompt from Magic AI → System Prompts
-   - Remembered facts (RememberFact / RecallMemory)
-        │
-        ▼
-3. Reason (respecting Max Agent Steps Per Turn)
-   - LLM picks one or more tools to call
-   - Each tool runs against real UnoPim data
-   - Only within the caller's ACL permissions
-        │
-        ▼
-4. Decide how to apply the result
-   - Confidence ≥ threshold + approval mode allows → apply directly
-   - Below threshold OR Manual Review mode → route to Approval Queue
-        │
-        ▼
-5. Respond
-   - Chat: stream back over Server-Sent Events
-   - Background: write to DB (possibly via approval queue)
-   - Record token usage against the Daily Token Budget
-```
+<ImagePopup src="/assets/2.1/images/ai-agent/agentic-pim-pipeline.png" alt="Agentic PIM Pipeline — 5-Step Workflow" />
 
 This pipeline runs on top of the unified **LaravelAiAdapter**, so switching Platforms or Models under Magic AI Settings immediately changes every Agentic PIM worker's behaviour.
+
 
 ## Configuration — the Agentic PIM settings
 

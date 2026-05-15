@@ -98,20 +98,9 @@ The **Usage History** section lets you review past activity over customizable da
 Use this historical data to inform budget allocation, spot power users, and identify operations that might benefit from a cheaper model.
 
 ## How analytics ties to the other agent controls
+The analytics dashboard is the observability layer that sits on top of the controls you configured under **Magic AI → Settings → Agentic PIM**. Together they form a continuous feedback loop:
 
-The analytics dashboard is the observability layer that sits on top of the controls you configured under **Magic AI → Settings → Agentic PIM**. Together they form a feedback loop:
-
-```
-Configure budget + approval mode    ←──┐
-             │                         │
-             ▼                         │
-   Users chat with the agent           │
-             │                         │
-             ▼                         │
-   Analytics records usage             │
-             │                         │
-             ▼                         │
-   You review trends and costs    ────┘
-```
+<ImagePopup src="/assets/2.1/images/ai-agent/analytics-feedback-loop.png" alt="AI Agent Management Feedback Loop" />
 
 A typical rollout is: start with a conservative Daily Token Budget and Manual Review approval, watch the analytics for a week, raise the budget where it's safe, and move trusted workflows to Auto-Approve based on what the dashboard tells you.
+

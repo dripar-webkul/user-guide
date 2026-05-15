@@ -15,27 +15,10 @@ Anything you can do from the admin UI, you can do by asking for it in the chat �
 
 ## How does it work?
 
-```
-You type a message
-        │
-        ▼
-Agent reads: message + session history + remembered facts + active System Prompt
-        │
-        ▼
-Agent picks a tool (or plans a chain of tools)
-        │
-        ▼
-Each tool runs against UnoPim data (gated by your ACL permissions)
-        │
-        ▼
-Risky / low-confidence changes → Approval Queue
-Safe changes → applied immediately
-        │
-        ▼
-Response streams back into chat over SSE
-```
+<ImagePopup src="/assets/2.1/images/ai-agent/agentic-pim-pipeline.png" alt="Agentic PIM Pipeline — 5-Step Workflow" />
 
 The Platform and Model used for this reasoning loop are configured under **Magic AI → Settings → Agentic PIM**. The personality (tone, temperature, max tokens) comes from the active **System Prompt**.
+
 
 ## Opening the AI Agent Chat
 

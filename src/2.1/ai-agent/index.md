@@ -17,17 +17,12 @@ The AI Agent is **different from Magic AI's wand icons**. Here's the distinction
 In short: **Magic AI writes content. The AI Agent takes actions.**
 
 ## How does the AI Agent work?
+Every chat message flows through the **Agentic PIM Pipeline**, a 5-step loop that ensures safety, precision, and transparency:
 
-Every chat message flows through this loop:
-
-1. **You send a message** in the AI Agent Chat panel.
-2. **The agent interprets your intent** using the Platform/Model configured under **Magic AI → Settings → Agentic PIM**, plus the active System Prompt personality and any facts it has remembered about you.
-3. **The agent chooses tools to call** from a library of 30+ PIM tools (see the [AI Agent Chat](./ai-agent-chat.md) page for the full list). For complex requests it chains several tools together in a plan.
-4. **Each tool runs against real UnoPim data** — but **only within your ACL permissions**. A tool you don't have permission for silently refuses to execute.
-5. **Destructive or low-confidence changes go to the Approval Queue** (if your Change Approval Mode is set that way) so you can review them before they're applied.
-6. **The response streams back into the chat** in real time over Server-Sent Events (SSE), so you see progress as the agent thinks and acts.
+<ImagePopup src="/assets/2.1/images/ai-agent/agentic-pim-pipeline.png" alt="Agentic PIM Pipeline — 5-Step Workflow" />
 
 Because the agent has real tools and real data, it's more powerful than a plain LLM chat — but also more consequential. The Approval Queue, token budget, confidence threshold, and ACL checks exist to keep that power under your control.
+
 
 ## Key Capabilities
 

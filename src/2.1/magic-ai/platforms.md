@@ -89,6 +89,11 @@ Settings (pick platform + model per feature)
         └─► Agentic PIM ──────► AI Agent Chat
 ```
 
+Every request — from a single field generation to a complex AI Agent plan — follows the **Agentic PIM Pipeline**:
+
+<ImagePopup src="/assets/2.1/images/ai-agent/agentic-pim-pipeline.png" alt="Agentic PIM Pipeline — 5-Step Workflow" />
+
+
 ## Minimum setup
 
 To get any Magic AI feature working at all:
