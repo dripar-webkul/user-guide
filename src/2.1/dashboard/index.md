@@ -103,7 +103,7 @@ A numerical breakdown of the catalog — the quickest way to judge health over t
 | **Avg Completeness** | Average completeness score across all products. |
 | **Enriched** | Number of products flagged as fully enriched. |
 
-::: tip Clickable stat tiles *(v2.1.0)*
+::: tip Clickable stat tiles
 Every Product Statistics tile now acts as a **filter chip** — click *Active*, *Inactive*, *With Variants*, *Enriched*, or *New This Week* and the Dashboard deep-links you straight into the Products listing pre-filtered to that set. No need to recreate the filter manually.
 :::
 
@@ -192,3 +192,35 @@ A common way admins use the Dashboard at the start of a shift:
 5. **Launch work** — use a Welcome Banner quick action or the AI Agent button to start the day's tasks.
 
 Following this flow turns the Dashboard into a daily triage screen rather than just a landing page.
+
+## Refreshing the Dashboard cache
+
+The Dashboard's heavier widgets — total counts, product stats, channel readiness, and the Needs Attention list — are cached so the page loads instantly even on large catalogs. Cache entries are invalidated automatically by writes (creating a product clears `dashboard.product_stats`, etc.), so under normal use you should always see fresh data.
+
+If you ever need to **force a refresh** — for example after a bulk database import that wrote outside the normal repository layer, or to confirm a stat is genuinely stale rather than just cached — run:
+
+```sh
+php artisan unopim:dashboard:refresh
+```
+
+The command clears these five cache keys:
+
+- `dashboard.total_catalogs`
+- `dashboard.total_configurations`
+- `dashboard.product_stats`
+- `dashboard.needs_attention`
+- `dashboard.channel_readiness`
+
+The next request that hits the Dashboard will recompute them from the database.
+
+::: tip When to run it
+Almost never during normal operation — UnoPim invalidates the cache for you. Reach for this command when you've:
+
+- Imported data directly with SQL (bypassing the import pipeline).
+- Restored a database backup and the Dashboard is showing pre-restore numbers.
+- Built a custom integration that writes through `DB::table()` rather than UnoPim repositories.
+:::
+
+::: tip Scheduling
+You can call `unopim:dashboard:refresh` from your scheduler (e.g. once per hour) if you have external systems writing into the database. Add it to `app/Console/Kernel.php` next to the other UnoPim schedules.
+:::

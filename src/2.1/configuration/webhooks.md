@@ -4,7 +4,7 @@ Webhooks in [UnoPim](https://unopim.com/) let you push real-time product update 
 
 The Webhook Settings page is located at **Configuration → Webhooks** in the admin sidebar.
 
-::: tip Async dispatch *(v2.1.0)*
+::: tip Async dispatch
 Webhook deliveries now run in the background as a queued **`SendProductWebhook`** job. On product create and update, the `Product` listener dispatches the job to the **`webhooks`** queue (`->onQueue('webhooks')`). Admin save actions return immediately — a slow receiving endpoint can no longer block the UI. Webhook log entries are still recorded once the job completes; the `webhook_logs.user_id` column is now nullable to support system-dispatched deliveries.
 :::
 
@@ -18,7 +18,7 @@ php artisan queue:work --queue=webhooks,system,default,completeness
 
 | Queue | Used by |
 |---|---|
-| **`webhooks`** | `SendProductWebhook` job *(v2.1.0)* — product create/update notifications. |
+| **`webhooks`** | `SendProductWebhook` job  — product create/update notifications. |
 | **`system`** | System-level jobs such as translation queues and indexing. |
 | **`default`** | Laravel's default queue — anything dispatched without an explicit queue. |
 | **`completeness`** | `BulkProductCompletenessJob` and per-product completeness recalculation. |
@@ -31,7 +31,7 @@ If you run `php artisan queue:work` without `--queue=webhooks,...`, webhook deli
 In production, supervise this command with Supervisor or systemd so the worker restarts automatically on failure. Run `php artisan queue:restart` after every deploy so workers pick up your latest code.
 :::
 
-## Retry policy *(v2.1.0)*
+## Retry policy
 
 If your receiving endpoint is down or returns an error, UnoPim does **not** give up after the first attempt. The `SendProductWebhook` job has a built-in retry policy:
 

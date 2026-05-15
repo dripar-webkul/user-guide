@@ -15,7 +15,7 @@ A *Platform* is one configured provider connection. It has three parts:
 
 You can register **as many Platforms as you like**. A common setup is one premium provider for content (e.g., OpenAI `gpt-4o`) and a cheaper or faster one for translation (e.g., Gemini `gemini-1.5-flash`). The Platforms page keeps them side by side; the **Settings** page decides which Platform handles which capability.
 
-::: tip Custom Provider *(v2.1.0)*
+::: tip Custom Provider
 Need to call an OpenAI-compatible service that isn't on the preset list — for example a self-hosted gateway, a corporate proxy, or an alternative inference provider? Pick the **Custom** provider and supply your own **Base URL**. UnoPim will route requests through the same `LaravelAiAdapter` pipeline used for the built-in providers.
 :::
 
@@ -56,7 +56,7 @@ Click the **Add Platform** button in the top-right corner. A modal opens with th
 API credentials are stored with encrypted credential storage for security. Your API keys are never stored in plain text.
 :::
 
-### Test Connection *(v2.1.0)*
+### Test Connection
 
 After saving, use the **Test Connection** action on the platform row to verify credentials before relying on it. The test is powered by the new **ModelRecommender**, which:
 
@@ -71,7 +71,7 @@ Run Test Connection any time you rotate an API key, change the Base URL of a Cus
 ## Platform Actions
 
 - **Star icon** — Sets the platform as the **default**. Anywhere the Settings page shows *"Use Default Platform"*, it resolves to the starred platform. Only one can be the default at a time.
-- **Test Connection** *(v2.1.0)* — Validates credentials, the Base URL (for Custom providers), and at least one usable text model. Image-only models are skipped automatically.
+- **Test Connection**  — Validates credentials, the Base URL (for Custom providers), and at least one usable text model. Image-only models are skipped automatically.
 - **Pencil icon** — Opens the edit modal so you can update the label, rotate the API key, adjust the model list, or flip status.
 - **Trash icon** — Deletes the platform configuration. Any feature that still points at this platform in Settings falls back to the default. Irreversible.
 

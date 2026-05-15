@@ -70,7 +70,7 @@ The Capabilities tab lists every tool the agent can invoke. Each tool represents
 | 8 | **Assign Categories** | Assign category paths to products |
 | 9 | **List Attributes** | View family attributes & options |
 | 10 | **Export Products** | Generate CSV/XLSX export |
-| 11 | **Bulk Import CSV** | Upload CSV/XLSX to batch update — runs as a background queued job *(v2.1.0)* |
+| 11 | **Bulk Import CSV** | Upload CSV/XLSX to batch update — runs as a background queued job  |
 | 12 | **Delete Products** | Remove products by SKU list |
 | 13 | **Create Category** | Add new categories to the catalog |
 | 14 | **Category Tree** | View full category hierarchy |
@@ -83,10 +83,51 @@ The Capabilities tab lists every tool the agent can invoke. Each tool represents
 | 21 | **Users** | View admin users & details |
 | 22 | **Roles** | View roles & permissions |
 | 23 | **Ask Anything** | Free-form PIM assistant |
-| 24 | **Manage Associations** | Add, remove, or list related/up-sell/cross-sell products via natural language *(v2.1.0)* |
+| 24 | **Manage Associations** | Add, remove, or list related/up-sell/cross-sell products via natural language  |
 
 ::: tip
 Every tool respects your ACL permissions. If your admin role doesn't allow a particular operation, the corresponding tool silently does not execute — the agent can never bypass your role.
+:::
+
+## Bulk Import CSV — now queued
+
+The **Bulk Import CSV** tool previously processed the entire file inline, inside the HTTP request. That worked for a few hundred rows, but timed out on larger uploads. In v2.1.0 the tool extracts the heavy lifting into a dedicated queued job — **`ImportProductsJob`** — so you can reliably push **10,000+ products** in a single AI Agent message.
+
+### How it works
+
+1. You ask the agent something like *"import these products"* and attach a CSV/XLSX.
+2. The agent validates the file, opens a **Job Track** record (visible from the **Job Tracker** page), and dispatches one `ImportProductsJob` to the queue.
+3. The job processes every row, recording results in a `JobTrackBatch`. The original HTTP request returns immediately with a job ID — you can keep chatting while the import runs.
+4. The agent reports progress in the chat as the job advances. When it finishes, you get a summary (`created`, `updated`, errors).
+
+### Import modes
+
+The agent can run the import in one of three modes — it picks based on your wording, but you can be explicit:
+
+| Mode | Behaviour | When to use |
+|---|---|---|
+| **`create_or_update`** *(default)* | Updates existing SKUs, creates new ones. | Mixed-batch imports. |
+| **`create_only`** | Only creates new SKUs — existing rows are **skipped**. | First-time loads where you want to avoid touching existing data. |
+| **`update_only`** | Only updates existing SKUs — new SKUs are **skipped**. | Bulk corrections on a known SKU set. |
+
+### Job behaviour
+
+| Setting | Value | Notes |
+|---|---|---|
+| **Timeout** | `3600` seconds (1 hour) | Generous ceiling for very large imports. |
+| **Tries** | `1` | The job is **not** retried on failure — partial results are recorded and the job is marked `failed`. Re-run the import from the AI Agent after you've fixed the source file. |
+| **Queue** | `default` | Make sure your `queue:work --queue=` list includes `default` (it does in the documented [worker command](../configuration/webhooks#running-the-queue-worker)). |
+
+### What gets recorded
+
+Every import dispatches into the standard UnoPim **Data Transfer pipeline**, so you can monitor it the same way you monitor a normal CSV import:
+
+- **Job Tracker** → see this import in the list with state `processing` → `completed`.
+- **Per-batch summary** → `processed_rows`, `created`, `updated`, errors.
+- **Errors** → first 10 row-level errors are saved with the format `Row N (SKU: X): <message>` so you can fix the source file.
+
+::: tip Why `$tries = 1`?
+Bulk imports are not safely retryable from the start — re-running a half-finished import would re-process rows that already succeeded, plus double-process anything that failed mid-row. UnoPim deliberately bails after one attempt so you can decide how to recover. Use the error list in the Job Tracker to fix the source rows and re-import.
 :::
 
 ## Chat Interface Layout
